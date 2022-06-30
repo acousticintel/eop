@@ -1,0 +1,89 @@
+.banner {
+  z-index: 100;
+  @apply relative;
+}
+
+.banner .banner-row {
+  @apply flex items-center overflow-hidden;
+}
+
+@media (max-width: 1440px) {
+  .banner .banner-row:first-child {
+    margin-top: 48px;
+  }
+}
+
+.banner .banner-row.center {
+  @apply justify-center text-center;
+}
+
+.banner .banner-row.center .row-letter {
+  @apply left-0;
+}
+
+.banner .banner-row.right {
+  @apply justify-end;
+}
+
+.banner .banner-row .row-title,
+.banner .banner-row .row-letter {
+  @apply relative inline-block text-7xl sm:text-9xl md:text-12xl lg:text-16xl font-semibold whitespace-nowrap tracking-tighter
+}
+
+.banner .banner-row .row-col {
+  @apply w-1/2 flex items-center justify-center;
+}
+
+@media (max-width: 1440px) {
+  .banner .banner-row .row-col {
+    width: 70%;
+  }
+}
+@media (max-width: 1240px) {
+  .banner .banner-row .row-col:last-child {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .banner .banner-row .row-col {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+.banner .banner-row .row-col .row-message {
+  @apply font-medium text-xl w-96;
+}
+
+.banner .banner-row .scroll {
+  @apply -bottom-20 left-52 w-40 h-40 rounded-full bg-white absolute flex items-center justify-center flex-col
+}
+
+@media (max-width: 1440px) {
+  .banner .banner-row .scroll {
+    left: 60px;
+  }
+}
+@media (max-width: 1240px) {
+  .banner .banner-row .scroll {
+    display: none;
+  }
+}
+.banner .banner-row .scroll span {
+  @apply text-xs xs:text-lg font-semibold my-0.5 xs:my-1;
+}
+
+.transition-image {
+  @apply h-screen w-screen absolute top-0 left-0 flex items-center justify-center
+}
+
+.transition-image img {
+  @apply flex w-[800px]
+}
+
+.transition-image.final {
+  @apply block relative h-full -top-14 xs:-top-32 w-[90%] mx-auto -z-[100]
+}
+
+.transition-image.final img {
+  @apply w-full max-w-full rounded-2xl;
+}

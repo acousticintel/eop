@@ -1,0 +1,31 @@
+.contact_sec {
+  @apply container mx-auto px-6 pb-32 caret-black flex items-center;
+}
+
+.contact_sec .row-title,
+.contact_sec .row-letter {
+  @apply relative inline-block text-5xl sm:text-7xl md:text-9xl font-semibold whitespace-nowrap tracking-wide overflow-hidden text-white;
+}
+
+.contact_sec > .cont {
+  @apply container mx-auto w-full overflow-hidden py-6;
+}
+
+.contact_sec form {
+  @apply px-6;
+}
+
+.contact_sec form input{
+  @apply h-10 w-full border-b-2 border-slate-300 bg-transparent text-white placeholder-transparent focus:outline-none focus:border-orange-400;
+}
+
+.contact_sec form textarea{
+  @apply h-32 w-full border-b-2 border-gray-300 bg-transparent text-white placeholder-transparent focus:outline-none focus:border-orange-400;
+}
+
+.contact_sec button {
+  @apply px-8 py-4 text-white font-semibold bg-orange-400 rounded-xl hover:bg-orange-600
+  transition-all transform ease-in-out duration-500;
+}
+
+
