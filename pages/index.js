@@ -32,7 +32,7 @@ export default function Home() {
               <div className="transition-image final">
                 <motion.img
                   transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1.6 }}
-                  src={`/images/image-2.jpg`}
+                  src={`/images/famous.png`}
                   layout
                   layoutId="main-image-1"
                 />

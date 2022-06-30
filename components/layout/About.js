@@ -96,7 +96,7 @@ export default function About() {
               className="relative w-full h-full z-20"
             >
               <Image
-                src="/images/image-1.webp"
+                src="/images/paa.png"
                 layout="fill"
                 className="object-cover"
                 alt=""
