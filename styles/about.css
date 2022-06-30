@@ -1,5 +1,5 @@
 .about_sec{
-  @apply flex flex-col md:flex-row my-16 items-center justify-center;
+  @apply h-screen flex flex-col md:flex-row my-16 items-center justify-center;
 }
 
 .about_sec > .content{
