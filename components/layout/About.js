@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useEffect, forwardRef } from "react";
 //custom
-import { Element } from "react-scroll"; 
+import { Element } from "react-scroll";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -58,7 +58,7 @@ const textAni = {
   },
 };
 
-const About = forwardRef(({ onBackClick }, refAbout) => {
+export default function About() {
   const controls = useAnimation();
   const [ref, inView] = useInView();
 
@@ -87,6 +87,7 @@ const About = forwardRef(({ onBackClick }, refAbout) => {
                 src="/images/image-4.webp"
                 layout="fill"
                 className="object-cover"
+                alt=""
               />
             </motion.div>
           </div>
@@ -99,6 +100,7 @@ const About = forwardRef(({ onBackClick }, refAbout) => {
                 src="/images/image-1.webp"
                 layout="fill"
                 className="object-cover"
+                alt=""
               />
             </motion.div>
           </div>
@@ -118,7 +120,7 @@ const About = forwardRef(({ onBackClick }, refAbout) => {
       </section>
     </Element>
   );
-});
+}
 
 const AnimatedLetters = ({ title, controls }) => (
   <motion.span
@@ -134,5 +136,3 @@ const AnimatedLetters = ({ title, controls }) => (
     ))}
   </motion.span>
 );
-
-export default About;

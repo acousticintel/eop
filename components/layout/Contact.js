@@ -163,7 +163,7 @@ export default function Contact() {
             animate={controls}
           >
             <div className="">
-              <div class="relative mt-12">
+              <div className="relative mt-12">
                 <input
                   id="email"
                   name="email"
@@ -172,13 +172,13 @@ export default function Contact() {
                   placeholder="john@doe.com"
                 />
                 <label
-                  for="email"
+                  htmlFor="email"
                   className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-8 peer-focus:text-gray-200 peer-focus:text-sm"
                 >
                   Email address
                 </label>
               </div>
-              <div class="relative mt-12">
+              <div className="relative mt-12">
                 <textarea
                   id="message"
                   name="message"
@@ -187,7 +187,7 @@ export default function Contact() {
                   placeholder="Type your message here"
                 />
                 <label
-                  for="message"
+                  htmlFor="message"
                   className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-8 peer-focus:text-gray-200 peer-focus:text-sm"
                 >
                   Message

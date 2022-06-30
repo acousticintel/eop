@@ -28,7 +28,7 @@ const Header = () => {
           </Link>
         </nav>
         <Link className="contact" to="contact" smooth={true}>
-          <a href="/contact">Let's work together</a>
+          <a href="/contact">{`Let's work together`}</a>
         </Link>
       </div>
     </motion.div>

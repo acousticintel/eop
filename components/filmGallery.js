@@ -58,7 +58,7 @@ const textAni = {
   },
 };
 
-const Gallery = forwardRef(({ onBackClick }, refAbout) => {
+export default function Gallery() {
   const controls = useAnimation();
   const [ref, inView] = useInView();
 
@@ -87,6 +87,7 @@ const Gallery = forwardRef(({ onBackClick }, refAbout) => {
                 src="/images/image-4.webp"
                 layout="fill"
                 className="object-cover"
+                alt=""
               />
             </motion.div>
           </div>
@@ -99,6 +100,7 @@ const Gallery = forwardRef(({ onBackClick }, refAbout) => {
                 src="/images/image-1.webp"
                 layout="fill"
                 className="object-cover"
+                alt=""
               />
             </motion.div>
           </div>
@@ -118,7 +120,7 @@ const Gallery = forwardRef(({ onBackClick }, refAbout) => {
       </section>
     </Element>
   );
-});
+};
 
 const AnimatedLetters = ({ title, controls }) => (
   <motion.span
@@ -135,4 +137,3 @@ const AnimatedLetters = ({ title, controls }) => (
   </motion.span>
 );
 
-export default Gallery;
