@@ -72,7 +72,6 @@ export default function About() {
     <Element name="about">
       <section className="about_sec" ref={ref}>
         <motion.div
-          ref={refAbout}
           variants={images}
           initial="initial"
           animate={controls}
