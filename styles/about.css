@@ -12,7 +12,7 @@
 }
 
 .about_sec > .content p{
-  @apply w-full md:w-3/4 p-6 md:p-8 lg:p-10 text-lg bg-white text-left z-50 rounded-xl;
+  @apply w-full md:w-3/4 p-6 md:p-8 lg:p-10 ml-10 text-lg bg-white text-left z-50 rounded-xl;
 }
 
 

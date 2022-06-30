@@ -41,7 +41,7 @@
   list-style: none;
   margin: 0 40px;
 }
-.header .header-inner .nav .navItem a {
+.header .header-inner .nav .navItem span {
   text-decoration: none;
   color: #24242a;
   white-space: nowrap;
@@ -51,7 +51,7 @@
     flex: 1;
   }
 }
-.header .header-inner .contact a {
+.header .header-inner .contact span {
   color: #24242a;
   text-decoration: none;
   border-bottom: 2px solid #24242a;
@@ -59,7 +59,7 @@
   white-space: nowrap;
 }
 @media (max-width: 480px) {
-  .header .header-inner .contact a {
+  .header .header-inner .contact span {
     border: none;
   }
 }

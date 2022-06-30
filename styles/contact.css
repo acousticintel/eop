@@ -1,5 +1,5 @@
 .contact_sec {
-  @apply container mx-auto px-6 pt-10 pb-32 caret-black flex flex-col md:flex-row items-center;
+  @apply container mx-auto px-6 pt-10 pb-32 caret-black flex flex-col xl:flex-row items-center;
 }
 
 .contact_sec .row-title,

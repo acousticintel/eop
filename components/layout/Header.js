@@ -18,17 +18,17 @@ const Header = () => {
         <div className="logo">EOP</div>
         <nav className="nav">
           <Link className="navItem" to="about" smooth={true}>
-            <a href="/about">About</a>
+            <span href="/about">About</span>
           </Link>
           <Link className="navItem" to="about" smooth={true}>
-            <a href="/cases">Gallery</a>
+            <span href="/cases">Gallery</span>
           </Link>
           <Link className="navItem" to="about" smooth={true}>
-            <a href="/why">Why work with us?</a>
+            <span href="/why">Why work with us?</span>
           </Link>
         </nav>
         <Link className="contact" to="contact" smooth={true}>
-          <a href="/contact">{`Let's work together`}</a>
+          <span href="/contact">{`Let's work together`}</span>
         </Link>
       </div>
     </motion.div>

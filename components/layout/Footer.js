@@ -14,12 +14,14 @@ export default function Footer() {
       <div className="w-full flex flex-col items-start">
         <div className="flex items-center gap-2">
           <div className="relative h-10 w-5">
-            <Image
-              src="/assets/logo.png"
-              layout="fill"
-              className="object-contain"
-              alt=""
-            />
+            {
+              //<Image
+              //src="/assets/logo.png"
+              //layout="fill"
+              //className="object-contain"
+              //alt=""
+              ///>
+            }
           </div>
           <h1 className="text-4xl font-bold uppercase">EOP</h1>
         </div>
