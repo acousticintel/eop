@@ -44,6 +44,7 @@ const Banner = ({ loading }) => {
       )}
       <motion.div className="banner" variants={banner}>
         <BannerRowCenter title={"whatever"} playMarquee={playMarquee} />
+        
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,6 +65,7 @@ const Banner = ({ loading }) => {
             one.
           </span>
         </motion.div>
+        <BannerRowBottom title={"takes"} />
       </motion.div>
     </div>
   );
@@ -87,16 +89,6 @@ const AnimatedLetters = ({ title, disabled }) => (
     ))}
   </motion.span>
 );
-
-const BannerRowTop = ({ title }) => {
-  return (
-    <div className={"banner-row"}>
-      <div className="row-col">
-        <AnimatedLetters title={title} />
-      </div>
-    </div>
-  );
-};
 
 const BannerRowBottom = ({ title }) => {
   return (
@@ -130,7 +122,6 @@ const BannerRowBottom = ({ title }) => {
           down
         </motion.span>
       </motion.div>
-      <AnimatedLetters title={title} />
     </Link>
   );
 };
@@ -144,13 +135,18 @@ const BannerRowCenter = ({ title, playMarquee }) => {
         transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1 }}
         className="marquee__inner"
       >
-        <AnimatedLetters title={"it"} />
-        <AnimatedLetters title={"takes"}  />
         <AnimatedLetters title={"whatever"}  />
         <AnimatedLetters title={"it"} />
-        <AnimatedLetters title={"takes"}  />
+        <AnimatedLetters title={"takes"} />
         <AnimatedLetters title={"whatever"}  />
         <AnimatedLetters title={"it"} />
+        <AnimatedLetters title={"takes"} />
+        <AnimatedLetters title={"whatever"}  />
+        <AnimatedLetters title={"it"} />
+        <AnimatedLetters title={"takes"} />
+        <AnimatedLetters title={"whatever"}  />
+        <AnimatedLetters title={"it"} />
+        <AnimatedLetters title={"takes"} />
       </motion.div>
     </div>
   );
