@@ -7,6 +7,7 @@ import Loader from "../components/layout/Loader";
 import About from "../components/layout/About";
 import Contact from "../components/layout/Contact";
 import Footer from "../components/layout/Footer";
+import Videos from "../components/Videos";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -27,18 +28,9 @@ export default function Home() {
         ) : (
           <>
             <Header />
-            <Banner />
-            {!loading && (
-              <div className="transition-image final">
-                <motion.img
-                  transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1.6 }}
-                  src={`/images/famous.png`}
-                  layout
-                  layoutId="main-image-1"
-                />
-              </div>
-            )}
+            <Banner loading={loading}/>
             <About />
+            <Videos />
             <Contact />
             <Footer />
           </>

@@ -3,6 +3,7 @@
 @import "./loader.css";
 @import "./marquee.css";
 @import "./about.css";
+@import "./videos.css";
 @import "./contact.css";
 
 @tailwind base;
@@ -16,7 +17,7 @@ html {
 
 body{
   caret-color: transparent; 
-  @apply font-body custom-scroll;
+  @apply font-body custom-scroll bg-slate-900 text-white;
 }
 
 /* width */

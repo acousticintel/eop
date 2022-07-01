@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useEffect, forwardRef } from "react";
+import { useEffect } from "react";
 //custom
 import { Element } from "react-scroll";
 import { motion, useAnimation } from "framer-motion";
@@ -58,7 +58,7 @@ const textAni = {
   },
 };
 
-export default function About() {
+export default function Videos() {
   const controls = useAnimation();
   const [ref, inView] = useInView();
 
@@ -69,44 +69,11 @@ export default function About() {
   }, [controls, inView]);
 
   return (
-    <Element name="about">
-      <section className="about_sec" ref={ref}>
-        <motion.div
-          variants={images}
-          initial="initial"
-          animate={controls}
-          className="relative bottom-0 md:bottom-60 w-full mr-10 -z-10 hidden xs:block"
-        >
-          <div className="absolute w-[150px] md:w-[600px] h-[125px] md:h-[500px] right-10 md:abs-center rounded-2xl overflow-hidden">
-            <motion.div
-              variants={imageAni}
-              className="relative w-full h-full z-10"
-            >
-              <Image
-                src="/images/famous.png"
-                layout="fill"
-                className="object-cover"
-                alt=""
-              />
-            </motion.div>
-          </div>
-          <div className="absolute w-[125px] md:w-[500px] h-[100px] md:h-[400px] right-0 -top-10 md:bottom-10 rounded-2xl overflow-hidden">
-            <motion.div
-              variants={imageAni}
-              className="relative w-full h-full z-20"
-            >
-              <Image
-                src="/images/paa.png"
-                layout="fill"
-                className="object-cover"
-                alt=""
-              />
-            </motion.div>
-          </div>
-        </motion.div>
-        <div className="content">
+    <Element name="videos">
+      <section className="videos_sec" ref={ref}>
+      <div className="content">
           <div className="ml-6">
-            <AnimatedLetters title={"About"} controls={controls} />
+            <AnimatedLetters title={"Gallery"} controls={controls} />
           </div>
           <motion.p variants={textAni} initial="initial" animate={controls}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
@@ -116,10 +83,69 @@ export default function About() {
             euismod. Mauris at tellus neque. Duis pellentesque et mi sit.
           </motion.p>
         </div>
+        <motion.div
+          variants={images}
+          initial="initial"
+          animate={controls}
+          className="relative -top-16 -right-10 w-[1000px] h-[700px] mr-10 -z-10 hidden md:block"
+        >
+          <div className="absolute w-[300px] h-[250px] center-hor top-0 rounded-2xl overflow-hidden">
+            <motion.div
+              variants={imageAni}
+              className="relative w-full h-full z-10"
+            >
+              <Image
+                src="/images/image-4.webp"
+                layout="fill"
+                className="object-cover"
+                alt=""
+              />
+            </motion.div>
+          </div>
+          <div className="absolute w-[300px] h-[350px] center-ver right-0 rounded-2xl overflow-hidden">
+            <motion.div
+              variants={imageAni}
+              className="relative w-full h-full z-10"
+            >
+              <Image
+                src="/images/image-4.webp"
+                layout="fill"
+                className="object-cover"
+                alt=""
+              />
+            </motion.div>
+          </div>
+          <div className="absolute w-[350px] h-[250px] center-hor bottom-0 rounded-2xl overflow-hidden">
+            <motion.div
+              variants={imageAni}
+              className="relative w-full h-full z-10"
+            >
+              <Image
+                src="/images/image-4.webp"
+                layout="fill"
+                className="object-cover"
+                alt=""
+              />
+            </motion.div>
+          </div>
+          <div className="absolute w-[300px] h-[300px] center-ver left-0 mx-auto rounded-2xl overflow-hidden">
+            <motion.div
+              variants={imageAni}
+              className="relative w-full h-full z-20"
+            >
+              <Image
+                src="/images/image-1.webp"
+                layout="fill"
+                className="object-cover"
+                alt=""
+              />
+            </motion.div>
+          </div>
+        </motion.div>
       </section>
     </Element>
   );
-}
+};
 
 const AnimatedLetters = ({ title, controls }) => (
   <motion.span
@@ -135,3 +161,4 @@ const AnimatedLetters = ({ title, controls }) => (
     ))}
   </motion.span>
 );
+

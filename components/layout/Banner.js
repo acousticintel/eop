@@ -22,7 +22,7 @@ const letterAni = {
   },
 };
 
-const Banner = () => {
+const Banner = ({ loading }) => {
   const [playMarquee, setPlayMarquee] = useState(false);
 
   useEffect(() => {
@@ -31,11 +31,41 @@ const Banner = () => {
     }, 2000);
   }, []);
   return (
-    <motion.div className="banner" variants={banner}>
-      <BannerRowTop title={"brand"} />
-      <BannerRowCenter title={"experience"} playMarquee={playMarquee} />
-      <BannerRowBottom title={"studio"} />
-    </motion.div>
+    <div className="relative">
+      {!loading && (
+        <div className="transition-image final">
+          <motion.img
+            transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1.6 }}
+            src={`/images/famous.png`}
+            layout
+            layoutId="main-image-1"
+          />
+        </div>
+      )}
+      <motion.div className="banner" variants={banner}>
+        <BannerRowCenter title={"whatever"} playMarquee={playMarquee} />
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            ease: "easeInOut",
+            duration: 1,
+            delay: 0.4,
+          }}
+          className="message-col"
+        >
+          <span className="row-message">
+            Nyota is a talented rising star struggling with the harsh reality of
+            the entertainment world;
+            <br />
+            <br />
+            Nikita's star is fading after a series of scandals. Her producer,
+            Magic, faces his own demons as he tries to keep Nikita at number
+            one.
+          </span>
+        </motion.div>
+      </motion.div>
+    </div>
   );
 };
 
@@ -64,21 +94,6 @@ const BannerRowTop = ({ title }) => {
       <div className="row-col">
         <AnimatedLetters title={title} />
       </div>
-      <motion.div
-        initial={{ opacity: 0, y: 80 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          ease: "easeInOut",
-          duration: 1,
-          delay: 0.4,
-        }}
-        className="row-col"
-      >
-        <span className="row-message">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu
-          molestie sem.
-        </span>
-      </motion.div>
     </div>
   );
 };
@@ -129,10 +144,13 @@ const BannerRowCenter = ({ title, playMarquee }) => {
         transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1 }}
         className="marquee__inner"
       >
-        <AnimatedLetters title={title} disabled />
-        <AnimatedLetters title={title} />
-        <AnimatedLetters title={title} disabled />
-        <AnimatedLetters title={title} disabled />
+        <AnimatedLetters title={"it"} />
+        <AnimatedLetters title={"takes"}  />
+        <AnimatedLetters title={"whatever"}  />
+        <AnimatedLetters title={"it"} />
+        <AnimatedLetters title={"takes"}  />
+        <AnimatedLetters title={"whatever"}  />
+        <AnimatedLetters title={"it"} />
       </motion.div>
     </div>
   );

@@ -56,7 +56,11 @@ const Loader = ({ setLoading }) => {
       >
         <ImageBlock variants={item} id="image-1" />
         <motion.div variants={itemMain} className="transition-image">
-          <motion.img layout layoutId="main-image-1" src={`/images/famous.png`} />
+          <motion.img
+            layout
+            layoutId="main-image-1"
+            src={`/images/famous.png`}
+          />
         </motion.div>
         <ImageBlock variants={item} id="image-3" />
         <ImageBlock variants={item} id="image-4" />
@@ -76,12 +80,21 @@ export const ImageBlock = ({ posX, posY, variants, id }) => {
         left: `${posX}vw `,
       }}
     >
-      <Image
-        src={`/images/${id}.webp`}
-        fallback={`/images/${id}.jpg`}
-        layout="fill"
-        alt={id}
-      />
+      {id === "image-1" ? (
+        <Image
+          src={`/images/paa.png`}
+          fallback={`/images/paa.png`}
+          layout="fill"
+          alt={id}
+        />
+      ) : (
+        <Image
+          src={`/images/${id}.webp`}
+          fallback={`/images/${id}.jpg`}
+          layout="fill"
+          alt={id}
+        />
+      )}
     </motion.div>
   );
 };

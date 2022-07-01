@@ -1,6 +1,6 @@
 .banner {
   z-index: 100;
-  @apply relative;
+  @apply absolute top-[0vh] w-[100vw];
 }
 
 .banner .banner-row {
@@ -27,7 +27,7 @@
 
 .banner .banner-row .row-title,
 .banner .banner-row .row-letter {
-  @apply relative inline-block text-7xl sm:text-9xl md:text-12xl lg:text-16xl font-semibold whitespace-nowrap tracking-tighter
+  @apply relative inline-block text-7xl sm:text-9xl font-semibold whitespace-nowrap tracking-tighter text-white
 }
 
 .banner .banner-row .row-col {
@@ -50,12 +50,17 @@
     justify-content: flex-start;
   }
 }
-.banner .banner-row .row-col .row-message {
-  @apply font-medium text-xl w-96;
+
+.message-col {
+  @apply w-[95vw] flex justify-end;
+}
+
+.message-col .row-message {
+  @apply font-medium float-right w-96 text-left text-white backdrop-blur-lg p-4 rounded-lg;
 }
 
 .banner .banner-row .scroll {
-  @apply -bottom-20 left-52 w-40 h-40 rounded-full bg-white absolute flex items-center justify-center flex-col
+  @apply -bottom-60 left-52 w-40 h-40 rounded-full bg-white absolute flex items-center justify-center flex-col
 }
 
 @media (max-width: 1440px) {
@@ -69,11 +74,11 @@
   }
 }
 .banner .banner-row .scroll span {
-  @apply text-xs xs:text-lg font-semibold my-0.5 xs:my-1;
+  @apply text-xs xs:text-lg font-semibold my-0.5 xs:my-1 text-slate-900;
 }
 
 .transition-image {
-  @apply h-screen w-screen absolute top-0 left-0 flex items-center justify-center
+  @apply h-screen w-screen absolute top-0 left-0 flex items-center justify-center -z-10
 }
 
 .transition-image img {
@@ -81,7 +86,7 @@
 }
 
 .transition-image.final {
-  @apply block relative h-full -top-14 xs:-top-32 w-[90%] mx-auto -z-[100]
+  @apply block relative h-full w-[95%] mx-auto -z-[100]
 }
 
 .transition-image.final img {

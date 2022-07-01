@@ -1,0 +1,25 @@
+.videos_sec{
+  @apply h-[80vh] flex my-16  justify-center ;
+}
+
+.videos_sec > .content{
+  @apply container mx-auto mt-10 mb-20;
+}
+
+.videos_sec > .content .row-title,
+.videos_sec > .content .row-letter {
+  @apply relative inline-block text-3xl sm:text-5xl md:text-7xl font-semibold whitespace-nowrap tracking-wide overflow-hidden;
+}
+
+.videos_sec > .content p{
+  @apply w-full p-6 md:p-8 lg:p-10 ml-10 text-lg text-left z-50 rounded-xl;
+}
+
+.videos_sec .center-hor{
+  @apply absolute left-1/2 transform -translate-x-1/2;
+}
+
+.videos_sec .center-ver{
+  @apply absolute top-1/2 transform -translate-y-1/2;
+}
+

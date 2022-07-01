@@ -1,9 +1,9 @@
 .about_sec{
-  @apply h-screen flex flex-col md:flex-row my-16 items-center justify-center;
+  @apply h-[80vh] flex flex-col md:flex-row mt-16 items-center justify-center;
 }
 
 .about_sec > .content{
-  @apply container mx-auto mt-10 mb-20;
+  @apply container mx-auto my-20;
 }
 
 .about_sec > .content .row-title,
@@ -12,7 +12,7 @@
 }
 
 .about_sec > .content p{
-  @apply w-full md:w-3/4 p-6 md:p-8 lg:p-10 ml-10 text-lg bg-white text-left z-50 rounded-xl;
+  @apply w-full md:w-3/4 p-6 md:p-8 lg:p-10 text-lg text-left z-50 rounded-xl;
 }
 
 

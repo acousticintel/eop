@@ -12,18 +12,13 @@ export default function Footer() {
   return (
     <footer className="footer px-10 py-20 bg-orange-400 flex w-full">
       <div className="w-full flex flex-col items-start">
-        <div className="flex items-center gap-2">
-          <div className="relative h-10 w-5">
-            {
-              //<Image
-              //src="/assets/logo.png"
-              //layout="fill"
-              //className="object-contain"
-              //alt=""
-              ///>
-            }
-          </div>
-          <h1 className="text-4xl font-bold uppercase">EOP</h1>
+        <div className="relative h-20 w-52">
+          <Image
+            src="/images/logo.png"
+            layout="fill"
+            className="object-contain"
+            alt=""
+          />
         </div>
         <p className="mt-6">Lorem ipsum dolor sit amet.</p>
       </div>
