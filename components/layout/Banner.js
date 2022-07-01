@@ -59,7 +59,7 @@ const Banner = ({ loading }) => {
             the entertainment world;
             <br />
             <br />
-            Nikita's star is fading after a series of scandals. Her producer,
+            Nikita s star is fading after a series of scandals. Her producer,
             Magic, faces his own demons as he tries to keep Nikita at number
             one.
           </span>
