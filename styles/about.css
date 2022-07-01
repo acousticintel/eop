@@ -1,5 +1,5 @@
 .about_sec{
-  @apply h-[80vh] flex flex-col md:flex-row mt-16 items-center justify-center;
+  @apply flex flex-col lg:flex-row mt-16 items-center justify-center;
 }
 
 .about_sec > .content{

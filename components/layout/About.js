@@ -75,9 +75,9 @@ export default function About() {
           variants={images}
           initial="initial"
           animate={controls}
-          className="relative bottom-0 md:bottom-60 w-full mr-10 -z-10 hidden xs:block"
+          className="relative -bottom-10 md:bottom-0 lg:bottom-60 w-full mr-10 -z-10 hidden xs:block"
         >
-          <div className="absolute w-[150px] md:w-[600px] h-[125px] md:h-[500px] right-10 md:abs-center rounded-2xl overflow-hidden">
+          <div className="absolute w-[150px] md:w-[300px] lg:w-[400px] xl:w-[600px] h-[125px] md:h-[250px] lg:h-[500px] right-10 lg:abs-center rounded-2xl overflow-hidden">
             <motion.div
               variants={imageAni}
               className="relative w-full h-full z-10"
@@ -90,7 +90,7 @@ export default function About() {
               />
             </motion.div>
           </div>
-          <div className="absolute w-[125px] md:w-[500px] h-[100px] md:h-[400px] right-0 -top-10 md:bottom-10 rounded-2xl overflow-hidden">
+          <div className="absolute w-[125px] md:w-[250px] lg:w-[400px] xl:w-[500px] h-[100px] md:h-[200px] lg:h-[400px] right-0 -top-10 lg:bottom-10 rounded-2xl overflow-hidden">
             <motion.div
               variants={imageAni}
               className="relative w-full h-full z-20"

@@ -44,7 +44,6 @@ const Banner = ({ loading }) => {
       )}
       <motion.div className="banner" variants={banner}>
         <BannerRowCenter title={"whatever"} playMarquee={playMarquee} />
-        
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           animate={{ opacity: 1, y: 0 }}
@@ -65,7 +64,7 @@ const Banner = ({ loading }) => {
             one.
           </span>
         </motion.div>
-        <BannerRowBottom title={"takes"} />
+        <BannerRowBottom />
       </motion.div>
     </div>
   );
@@ -90,7 +89,7 @@ const AnimatedLetters = ({ title, disabled }) => (
   </motion.span>
 );
 
-const BannerRowBottom = ({ title }) => {
+const BannerRowBottom = () => {
   return (
     <Link to="about" smooth={true} className={"banner-row center"}>
       <motion.div

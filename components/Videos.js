@@ -71,7 +71,7 @@ export default function Videos() {
   return (
     <Element name="videos">
       <section className="videos_sec" ref={ref}>
-      <div className="content">
+        <div className="content">
           <div className="ml-6">
             <AnimatedLetters title={"Gallery"} controls={controls} />
           </div>
@@ -145,7 +145,7 @@ export default function Videos() {
       </section>
     </Element>
   );
-};
+}
 
 const AnimatedLetters = ({ title, controls }) => (
   <motion.span
@@ -161,4 +161,3 @@ const AnimatedLetters = ({ title, controls }) => (
     ))}
   </motion.span>
 );
-

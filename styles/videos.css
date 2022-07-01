@@ -1,9 +1,9 @@
 .videos_sec{
-  @apply h-[80vh] flex my-16  justify-center ;
+  @apply container mx-auto flex my-16 justify-center ;
 }
 
 .videos_sec > .content{
-  @apply container mx-auto mt-10 mb-20;
+  @apply w-full mx-auto mt-10 mb-20;
 }
 
 .videos_sec > .content .row-title,
