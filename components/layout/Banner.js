@@ -30,6 +30,7 @@ const Banner = ({ loading }) => {
       setPlayMarquee(true);
     }, 2000);
   }, []);
+  
   return (
     <div className="relative">
       {!loading && (
@@ -43,14 +44,14 @@ const Banner = ({ loading }) => {
         </div>
       )}
       <motion.div className="banner" variants={banner}>
-        <BannerRowCenter title={"whatever"} playMarquee={playMarquee} />
+        <BannerRowCenter playMarquee={playMarquee} />
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
             ease: "easeInOut",
             duration: 1,
-            delay: 0.4,
+            delay: 3,
           }}
           className="message-col"
         >

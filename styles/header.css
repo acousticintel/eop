@@ -38,8 +38,7 @@
   }
 }
 .header .header-inner .nav .navItem {
-  list-style: none;
-  margin: 0 40px;
+  @apply list-none mx-10
 }
 .header .header-inner .nav .navItem span {
   text-decoration: none;

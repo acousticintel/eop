@@ -1,7 +1,15 @@
-import '../styles/globals.css'
+import Layout from "../components/layout";
+import { RecoilRoot } from "recoil";
+import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+function MyApp({ Component, pageProps, router }) {
+  return (
+    <RecoilRoot>
+      <Layout path={router.route}>
+        <Component {...pageProps} />
+      </Layout>
+    </RecoilRoot>
+  );
 }
 
-export default MyApp
+export default MyApp;

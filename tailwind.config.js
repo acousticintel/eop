@@ -18,6 +18,7 @@ module.exports = {
       },
       fontFamily: {
         body: ["Raleway", ...defaultTheme.fontFamily.sans],
+        heavy: ["Alfa Slab One", ...defaultTheme.fontFamily.sans],
       },
     },
   },

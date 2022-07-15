@@ -1,41 +1,23 @@
 import { useEffect, useState } from "react";
-import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
-
+//custom packages
+import { useRecoilValue } from "recoil";
+//custom
+import { loadingAtom } from "../context/loadingAtom";
 import Banner from "../components/layout/Banner";
-import Header from "../components/layout/Header";
-import Loader from "../components/layout/Loader";
 import About from "../components/layout/About";
 import Contact from "../components/layout/Contact";
 import Footer from "../components/layout/Footer";
-import Videos from "../components/Videos";
+import Videos from "../components/layout/Videos";
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    loading
-      ? document.querySelector("body").classList.add("loading")
-      : document.querySelector("body").classList.remove("loading");
-  }, [loading]);
-
+  const loading = useRecoilValue(loadingAtom);
   return (
-    <LayoutGroup>
-      <AnimatePresence>
-        {loading ? (
-          <motion.div key="loader">
-            <Loader setLoading={setLoading} />
-          </motion.div>
-        ) : (
-          <>
-            <Header />
-            <Banner loading={loading}/>
-            <About />
-            <Videos />
-            <Contact />
-            <Footer />
-          </>
-        )}
-      </AnimatePresence>
-    </LayoutGroup>
+    <>
+      <Banner loading={loading} />
+      <About />
+      <Videos />
+      <Contact />
+      <Footer />
+    </>
   );
 }

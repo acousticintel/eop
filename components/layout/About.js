@@ -1,23 +1,40 @@
 import Image from "next/image";
-import { useEffect, forwardRef } from "react";
-//custom
-import { Element } from "react-scroll";
+import { useEffect } from "react";
+//custom packages
+import { Element, Link } from "react-scroll";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+//custom
+import Parallax from "../elements/Parallax";
+import { BsFillCameraReelsFill } from "react-icons/bs";
 
 const banner = {
   animate: {
     transition: {
+      delay: 2,
       staggerChildren: 0.1,
     },
   },
 };
 
-const images = {
+const listsAni = {
   animate: {
     transition: {
-      delayChildren: 0.5,
+      delayChildren: 2,
       staggerChildren: 0.5,
+    },
+  },
+};
+
+const listAni = {
+  initial: { x: 200, opacity: 0, scale: 0.75 },
+  animate: {
+    x: 0,
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeInOut",
     },
   },
 };
@@ -33,14 +50,28 @@ const letterAni = {
   },
 };
 
-const imageAni = {
-  initial: { x: 400, opacity: 0 },
+const lineAni = {
+  initial: { width: 0, opacity: 0 },
   animate: {
-    x: 0,
+    width: "30%",
     opacity: 1,
     transition: {
-      duration: 1,
-      ease: [0.6, 0.01, -0.05, 0.95],
+      delay: 0.5,
+      duration: 2,
+      ease: "easeInOut",
+    },
+  },
+};
+
+const iframeAni = {
+  initial: { x: 200, opacity: 0, scale: 0.75 },
+  animate: {
+    x: 0,
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 2,
+      ease: "easeInOut",
     },
   },
 };
@@ -53,6 +84,20 @@ const textAni = {
     transition: {
       delay: 1,
       duration: 1,
+      ease: "easeInOut",
+    },
+  },
+};
+
+const buttonAni = {
+  initial: { x: 200, opacity: 0, scale: 0.75 },
+  animate: {
+    x: 0,
+    scale: 1,
+    opacity: 1,
+    transition: {
+      delay: 3,
+      duration: 2,
       ease: [0.6, 0.01, -0.05, 0.95],
     },
   },
@@ -66,56 +111,96 @@ export default function About() {
     if (inView) {
       controls.start("animate");
     }
+    console.log("inView",inView);
   }, [controls, inView]);
 
   return (
     <Element name="about">
-      <section className="about_sec" ref={ref}>
+      <section className="h-full container my-[20vh] mx-auto">
+        <div className="about_sec" ref={ref}>
+          <Parallax offset={150}>
+            <motion.div
+              initial="initial"
+              animate={controls}
+              variants={iframeAni}
+              className="iframe_cont"
+            >
+              <iframe
+                src="https://drive.google.com/file/d/1KaChbw_pKUV8VLpQCV78QVbY2cpyqw8U/preview"
+                className="responsive-iframe"
+                allow="autoplay"
+              />
+            </motion.div>
+          </Parallax>
+          <div className="content">
+            <div className="ml-6">
+              <Parallax offset={50}>
+                <AnimatedLetters title={"About"} controls={controls} />
+                <motion.div
+                  variants={lineAni}
+                  initial="initial"
+                  animate={controls}
+                  className="divider bg-orange-400 h-1.5"
+                />
+              </Parallax>
+            </div>
+            <Parallax offset={75}>
+              <motion.p variants={textAni} initial="initial" animate={controls}>
+                <span className="text-3xl font-semibold text-orange-400">
+                  E.O.P Films
+                </span>{" "}
+                is a production company based in Nairobi Kenya. EOP is a fully
+                fledged production house that collaborates with brands to
+                produce high quality content from conceptualization to full
+                production focused on innovative concepts with a fresh approach.
+                The combined experience of the in-house team includes a vast
+                body of work in:
+              </motion.p>
+            </Parallax>
+            <Parallax offset={100}>
+              <motion.ol
+                initial="initial"
+                animate={controls}
+                variants={listsAni}
+              >
+                <motion.li variants={listAni}>
+                  <BsFillCameraReelsFill size="1.5em" />{" "}
+                  <span>
+                    {" "}
+                    TV Programs (reality, magazine & scriptedcontent: both
+                    series and movies)
+                  </span>{" "}
+                </motion.li>
+                <motion.li variants={listAni}>
+                  <BsFillCameraReelsFill size="1.5em" />{" "}
+                  <span>Music Videos (both Kenyan and international)</span>{" "}
+                </motion.li>
+                <motion.li variants={listAni}>
+                  <BsFillCameraReelsFill size="1.5em" />{" "}
+                  <span>
+                    Documentaries, live event coverage (sports/concerts)
+                  </span>{" "}
+                </motion.li>
+                <motion.li variants={listAni}>
+                  <BsFillCameraReelsFill size="1.5em" />{" "}
+                  <span>TV commercials</span>{" "}
+                </motion.li>
+              </motion.ol>
+            </Parallax>
+          </div>
+        </div>
         <motion.div
-          variants={images}
           initial="initial"
           animate={controls}
-          className="relative -bottom-10 md:bottom-0 lg:bottom-60 w-full mr-10 -z-10 hidden xs:block"
+          variants={buttonAni}
+          className="flex justify-end px-0 sm:px-[10vw]"
         >
-          <div className="absolute w-[150px] md:w-[300px] lg:w-[400px] xl:w-[600px] h-[125px] md:h-[250px] lg:h-[500px] right-10 lg:abs-center rounded-2xl overflow-hidden">
-            <motion.div
-              variants={imageAni}
-              className="relative w-full h-full z-10"
-            >
-              <Image
-                src="/images/famous.png"
-                layout="fill"
-                className="object-cover"
-                alt=""
-              />
-            </motion.div>
-          </div>
-          <div className="absolute w-[125px] md:w-[250px] lg:w-[400px] xl:w-[500px] h-[100px] md:h-[200px] lg:h-[400px] right-0 -top-10 lg:bottom-10 rounded-2xl overflow-hidden">
-            <motion.div
-              variants={imageAni}
-              className="relative w-full h-full z-20"
-            >
-              <Image
-                src="/images/paa.png"
-                layout="fill"
-                className="object-cover"
-                alt=""
-              />
-            </motion.div>
-          </div>
+          <Link to="videos" smooth={true}>
+            <Parallax offset={100}>
+              <div className="fancy-button">Our Works</div>
+            </Parallax>
+          </Link>
         </motion.div>
-        <div className="content">
-          <div className="ml-6">
-            <AnimatedLetters title={"About"} controls={controls} />
-          </div>
-          <motion.p variants={textAni} initial="initial" animate={controls}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-            eu molestie sem. Etiam gravida ligula eu arcu gravida, et aliquam
-            nisi aliquam. Pellentesque a sodales elit. Ut scelerisque diam erat,
-            et dignissim orci laoreet ut. Donec tincidunt elit ac consequat
-            euismod. Mauris at tellus neque. Duis pellentesque et mi sit.
-          </motion.p>
-        </div>
       </section>
     </Element>
   );

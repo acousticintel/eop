@@ -1,5 +1,5 @@
 .videos_sec{
-  @apply container mx-auto flex my-16 justify-center ;
+  @apply  h-full grid gap-6 grid-cols-1 xl:grid-cols-2 items-center justify-center;
 }
 
 .videos_sec > .content{
@@ -8,18 +8,42 @@
 
 .videos_sec > .content .row-title,
 .videos_sec > .content .row-letter {
-  @apply relative inline-block text-3xl sm:text-5xl md:text-7xl font-semibold whitespace-nowrap tracking-wide overflow-hidden;
+  @apply relative inline-block text-6xl sm:text-7xl md:text-8xl font-semibold whitespace-nowrap tracking-wide overflow-hidden;
 }
 
 .videos_sec > .content p{
-  @apply w-full p-6 md:p-8 lg:p-10 ml-10 text-lg text-left z-50 rounded-xl;
-}
-
-.videos_sec .center-hor{
-  @apply absolute left-1/2 transform -translate-x-1/2;
+  @apply w-full p-6 md:p-8 xl:p-10 ml-10 text-lg text-left z-50 rounded-xl flex items-start;
 }
 
 .videos_sec .center-ver{
   @apply absolute top-1/2 transform -translate-y-1/2;
 }
 
+/*
+Video page
+*/
+
+.videos_page{
+  @apply container mx-auto overflow-hidden;
+}
+
+.videos_page .projects{
+  @apply grid grid-cols-2 lg:grid-cols-1 items-center justify-center;
+}
+
+.videos_page .projects li{
+  @apply w-full list-none py-10 my-2 text-center text-2xl font-heavy tracking-wide text-white transition-all duration-1000 ease-in-out origin-top-left ;
+}
+
+.videos_page .projects li.selected{
+  @apply w-full list-none py-10 my-2 text-center text-3xl lg:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-red-800 via-yellow-600 to-yellow-500;
+}
+
+.videos_page .content{
+  height: calc(100vh - 10em);
+  @apply flex lg:flex-col overflow-x-auto overflow-y-hidden lg:overflow-y-auto lg:overflow-x-hidden;
+}
+
+.videos_page .content > .spacer{
+  @apply h-[25vh]  bg-red-300;
+}

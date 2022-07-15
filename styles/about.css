@@ -1,18 +1,40 @@
-.about_sec{
-  @apply flex flex-col lg:flex-row mt-16 items-center justify-center;
+.about_sec {
+  @apply h-full grid gap-6 grid-cols-1 xl:grid-cols-2 items-center justify-center;
 }
 
-.about_sec > .content{
-  @apply container mx-auto my-20;
+.about_sec .iframe_cont {
+  @apply relative overflow-hidden rounded-2xl w-full pt-[56.25%];
+}
+
+.responsive-iframe {
+  @apply absolute top-0 left-0 bottom-0 right-0 w-full h-full
 }
 
 .about_sec > .content .row-title,
 .about_sec > .content .row-letter {
-  @apply relative inline-block text-5xl sm:text-7xl md:text-9xl font-semibold whitespace-nowrap tracking-wide overflow-hidden;
+  @apply relative inline-block text-6xl sm:text-7xl md:text-8xl font-semibold whitespace-nowrap tracking-wide overflow-hidden;
 }
 
-.about_sec > .content p{
-  @apply w-full md:w-3/4 p-6 md:p-8 lg:p-10 text-lg text-left z-50 rounded-xl;
+.about_sec > .content p {
+  @apply w-full p-6 md:p-8 lg:p-10 text-lg text-left;
 }
 
+.about_sec > .content ol {
+  @apply w-full px-6 md:px-8 lg:px-10 text-lg text-left;
+}
 
+.about_sec > .content ol li * {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.about_sec > .content ol li {
+  @apply flex gap-4 items-center mt-6 text-orange-300 hover:text-orange-500;
+}
+
+.about_sec > .content ol li > span {
+  @apply text-orange-300 origin-top-left transition-all duration-200 ease-in-out;
+}
+
+.about_sec > .content ol li:hover > span {
+  @apply text-orange-500 font-semibold;
+}

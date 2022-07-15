@@ -4,7 +4,7 @@
 
 .contact_sec .row-title,
 .contact_sec .row-letter {
-  @apply relative inline-block text-5xl sm:text-7xl md:text-9xl font-semibold whitespace-nowrap tracking-wide overflow-hidden text-white;
+  @apply relative inline-block text-6xl sm:text-7xl md:text-8xl font-semibold whitespace-nowrap tracking-wide overflow-hidden text-white;
 }
 
 .contact_sec > .cont {

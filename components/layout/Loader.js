@@ -84,13 +84,15 @@ export const ImageBlock = ({ posX, posY, variants, id }) => {
         <Image
           src={`/images/paa.png`}
           fallback={`/images/paa.png`}
+          objectFit="cover"
           layout="fill"
           alt={id}
         />
       ) : (
         <Image
-          src={`/images/${id}.webp`}
+          src={`https://api.lorem.space/image/movie?hash=317${id}`}
           fallback={`/images/${id}.jpg`}
+          objectFit="cover"
           layout="fill"
           alt={id}
         />
