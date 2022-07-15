@@ -32,7 +32,7 @@ Video page
 }
 
 .videos_page .projects li{
-  @apply w-full list-none py-10 my-2 text-center text-2xl font-heavy tracking-wide text-white transition-all duration-1000 ease-in-out origin-top-left ;
+  @apply w-full list-none py-10 my-2 text-center text-2xl !font-heavy tracking-wide text-white transition-all duration-1000 ease-in-out origin-top-left ;
 }
 
 .videos_page .projects li.selected{
