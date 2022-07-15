@@ -41,9 +41,5 @@ Video page
 
 .videos_page .content{
   height: calc(100vh - 10em);
-  @apply flex lg:flex-col overflow-x-auto overflow-y-hidden lg:overflow-y-auto lg:overflow-x-hidden;
-}
-
-.videos_page .content > .spacer{
-  @apply h-[25vh]  bg-red-300;
+  @apply flex lg:flex-col overflow-x-auto overflow-y-hidden lg:overflow-y-auto lg:overflow-x-hidden py-[25vh];
 }

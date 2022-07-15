@@ -19,12 +19,12 @@ let projects = [
     image: "/images/paa.png",
   },
   {
-    name: "Movie3",
+    name: "Project1",
     trailer: "oPHHndqUsws",
     image: "https://api.lorem.space/image/movie?hash=96782",
   },
   {
-    name: "Movie4",
+    name: "Project2",
     trailer: "e-gVjh6nS3M",
     image: "https://api.lorem.space/image/movie?hash=84634",
   },
@@ -152,7 +152,6 @@ export default function VideosPage() {
           id="content"
           className="content no-scroll"
         >
-          <div className="spacer" />
           {!loading &&
             projects.map((p, i) => (
               <Element name={p.name} id={p.name} key={i}>
@@ -166,7 +165,6 @@ export default function VideosPage() {
                 </motion.div>
               </Element>
             ))}
-          <div className="spacer" />
         </motion.div>
       </div>
     </section>

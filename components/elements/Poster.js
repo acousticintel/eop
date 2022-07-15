@@ -88,7 +88,7 @@ export default function Poster({ selected, setSelected, data, index }) {
   const controls = useAnimation("norm");
   const hovControls = useAnimation("selected");
   const [ref, inView] = useInView();
-  const [eventLis, setEventLis] = useState(false);
+  const [eventLis, setEventLis] = useState(null);
   const [error, setError] = useState(false);
   const [hovered, setHovered] = useState(false);
 
@@ -111,8 +111,8 @@ export default function Poster({ selected, setSelected, data, index }) {
   }, [controls, hovControls, inView, hovered]);
 
   useEffect(() => {
-    if (!hovered && eventLis) {
-      eventLis?.pauseVideo();
+    if (!hovered && eventLis !== null) {
+      eventLis?.pauseVideo && eventLis.pauseVideo();
     }
   }, [hovered]);
 

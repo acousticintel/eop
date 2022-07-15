@@ -38,12 +38,11 @@
   }
 }
 .header .header-inner .nav .navItem {
-  @apply list-none mx-10
+  @apply list-none !mx-10
 }
 .header .header-inner .nav .navItem span {
   text-decoration: none;
-  color: #fff;
-  white-space: nowrap;
+  @apply text-white whitespace-nowrap;
 }
 
 @media (max-width: 1440px) {
