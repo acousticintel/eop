@@ -42,7 +42,6 @@ const team = [
 const pageAni = {
   animate: {
     transition: {
-      delayChildren: 1,
       staggerChildren: 0.5,
     },
   },

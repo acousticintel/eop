@@ -111,7 +111,6 @@ export default function About() {
     if (inView) {
       controls.start("animate");
     }
-    console.log("inView",inView);
   }, [controls, inView]);
 
   return (

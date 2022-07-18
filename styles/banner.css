@@ -1,6 +1,5 @@
 .banner {
-  z-index: 100;
-  @apply absolute top-[0vh] w-[100vw];
+  @apply absolute top-[0vh] w-[100vw] z-40;
 }
 
 .banner .banner-row {
@@ -56,7 +55,7 @@
 }
 
 .message-col .row-message {
-  @apply font-medium float-right w-96 text-left text-white backdrop-blur-lg p-4 rounded-lg;
+  @apply font-medium text-sm lg:text-base float-right w-96 text-left text-white backdrop-blur-lg p-4 rounded-lg;
 }
 
 .banner .banner-row .scroll {

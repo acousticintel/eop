@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 //custom packages
 import { Link as ScrollLink, scroller } from "react-scroll";
 import { motion } from "framer-motion";
+import Menu from "../elements/Menu";
+import { useEffect } from "react";
 
 const headerAnim = {
   hidden: { opacity: 0, y: -200 },
@@ -31,96 +33,77 @@ const Header = () => {
     scrollTarget(target);
   };
 
-  if (router.pathname === "/") {
-    return (
-      <motion.div
-        id="about"
-        variants={headerAnim}
-        initial="hidden"
-        animate="show"
-        className="header"
-      >
-        <div className="header-inner">
-          <Link href="/">
-            <div className="relative h-20 w-52 min-w-[100px]">
-              <Image
-                src="/images/logo-w.png"
-                layout="fill"
-                className="object-contain"
-                alt=""
-              />
-            </div>
+  useEffect(() => {
+    console.log(router.pathname);
+  }, []);
+
+  return (
+    <motion.div
+      id="about"
+      variants={headerAnim}
+      initial="hidden"
+      animate="show"
+      className="header"
+    >
+      <div className="header-inner">
+        <Link href="/">
+          <div className="relative h-20 w-52 min-w-[100px]">
+            <Image
+              src="/images/logo-w.png"
+              layout="fill"
+              className="object-contain"
+              alt=""
+            />
+          </div>
+        </Link>
+        <nav className="nav">
+          <Link className="navItem" href="/">
+            <span>Home</span>
           </Link>
-          <nav className="nav">
-            <Link className="navItem" href="/">
-              <span>Home</span>
-            </Link>
-            <ScrollLink className="navItem" to="about" smooth={true}>
-              <span>About</span>
-            </ScrollLink>
-            <ScrollLink className="navItem" to="videos" smooth={true}>
-              <span>Our Works</span>
-            </ScrollLink>
-            <Link className="navItem" href="/team">
-              <span>Our Team</span>
-            </Link>
-          </nav>
-          <ScrollLink
-            className="contact text-sm sm:text-lg ml-5 xs:ml-0"
-            to="contact"
-            smooth={true}
+          <div
+            className="navItem"
+            onClick={() => {
+              scrollToPage("about");
+            }}
           >
-            <span href="/contact">{`Let's work together`}</span>
-          </ScrollLink>
-        </div>
-      </motion.div>
-    );
-  } else {
-    return (
-      <motion.div
-        id="about"
-        variants={headerAnim}
-        initial="hidden"
-        animate="show"
-        className="header"
-      >
-        <div className="header-inner">
-          <Link href="/">
-            <div className="relative h-20 w-52 min-w-[100px]">
-              <Image
-                src="/images/logo-w.png"
-                layout="fill"
-                className="object-contain"
-                alt=""
-              />
-            </div>
-          </Link>
-          <nav className="nav">
-            <Link className="navItem" href="/">
-              <span>Home</span>
-            </Link>
+            <span>About</span>
+          </div>
+          {router.pathname !== "/videos" && (
             <div
               className="navItem"
               onClick={() => {
-                scrollToPage("about");
+                scrollToPage("videos");
               }}
             >
-              <span>About</span>
+              <span>Our Work</span>
             </div>
-            <Link className="navItem" href="/team">
+          )}
+          <Link href="/team">
+            <div className="navItem">
               <span>Our Team</span>
-            </Link>
-          </nav>
-          <ScrollLink
-            className="contact text-sm sm:text-lg ml-5 xs:ml-0"
-            to="contact"
-            smooth={true}
+            </div>
+          </Link>
+          <div
+            className="navItem cont"
+            onClick={() => {
+              scrollToPage("contact");
+            }}
           >
-            <span href="/contact">{`Let's work together`}</span>
-          </ScrollLink>
+            <span>{`Let's work together`}</span>
+          </div>
+        </nav>
+        <ScrollLink
+          className="contact text-sm sm:text-lg ml-5 xs:ml-0"
+          to="contact"
+          smooth={true}
+        >
+          <span href="/contact">{`Let's work together`}</span>
+        </ScrollLink>
+        <div className="menu__cont">
+          <Menu />
         </div>
-      </motion.div>
-    );
-  }
+      </div>
+    </motion.div>
+  );
 };
 export default Header;

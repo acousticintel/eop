@@ -7,6 +7,7 @@ import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
 import { loadingAtom } from "../../context/loadingAtom";
 //dynamic
 const Header = dynamic(() => import("./Header"));
+const Sidebar = dynamic(() => import("./Sidebar"));
 const Loader = dynamic(() => import("./Loader"));
 
 export default function Layout({ children, path }) {
@@ -16,7 +17,6 @@ export default function Layout({ children, path }) {
   useEffect(() => {
     //console.log("path", path);
   }, [path]);
-
 
   useEffect(() => {
     loading
@@ -33,6 +33,7 @@ export default function Layout({ children, path }) {
           </motion.div>
         ) : (
           <>
+            <Sidebar /> 
             <Header />
             {children}
           </>

@@ -136,7 +136,7 @@ export default function Videos() {
                   className="relative w-full h-full z-10"
                 >
                   <Image
-                    src="https://api.lorem.space/image/face?hash=3174"
+                    src="https://api.lorem.space/image/movie?hash=3174"
                     layout="fill"
                     className="object-cover"
                     alt=""
@@ -151,7 +151,7 @@ export default function Videos() {
                   className="relative w-full h-full z-10"
                 >
                   <Image
-                    src="https://api.lorem.space/image/face?hash=3175"
+                    src="https://api.lorem.space/image/movie?hash=3175"
                     layout="fill"
                     className="object-cover"
                     alt=""
@@ -166,7 +166,7 @@ export default function Videos() {
                   className="relative w-full h-full z-10"
                 >
                   <Image
-                    src="https://api.lorem.space/image/face?hash=3176"
+                    src="https://api.lorem.space/image/movie?hash=3176"
                     layout="fill"
                     className="object-cover"
                     alt=""

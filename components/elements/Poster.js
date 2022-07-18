@@ -111,7 +111,7 @@ export default function Poster({ selected, setSelected, data, index }) {
   }, [controls, hovControls, inView, hovered]);
 
   useEffect(() => {
-    if (!hovered && eventLis !== null) {
+    if (!hovered && eventLis?.pauseVideo) {
       eventLis?.pauseVideo && eventLis.pauseVideo();
     }
   }, [hovered]);
