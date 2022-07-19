@@ -192,7 +192,7 @@ export default function About() {
           initial="initial"
           animate={controls}
           variants={buttonAni}
-          className="flex justify-end px-0 sm:px-[10vw]"
+          className="flex justify-center sm:justify-end px-0 sm:px-[10vw]"
         >
           <Link to="videos" smooth={true}>
             <Parallax offset={100}>

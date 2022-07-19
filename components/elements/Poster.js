@@ -93,6 +93,19 @@ export default function Poster({ selected, setSelected, data, index }) {
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
+    //show trailers if selected for x time
+    let timer = null;
+    if (selected === data.name && inView) {
+      timer = setTimeout(() => {
+        hovControls.start("hovered");
+      }, 2000);
+    }
+    return () => { 
+      window.clearInterval(timer);
+    }
+  }, [selected, inView]);
+
+  useEffect(() => {
     if (selected === data.name && inView) {
       controls.start("selected");
       hovControls.start("selected");
@@ -147,7 +160,7 @@ export default function Poster({ selected, setSelected, data, index }) {
       onMouseDown={() => setHovered(true)}
       onMouseOver={() => setHovered(true)}
       onMouseOut={() => setHovered(false)}
-      className="relative h-[40vh] lg:h-[60vh] w-[80vw] lg:w-full"
+      className="relative h-[60vh] lg:h-[60vh] w-[80vw] lg:w-full"
     >
       <motion.div
         initial="selected"

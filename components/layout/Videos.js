@@ -196,7 +196,7 @@ export default function Videos() {
           initial="initial"
           animate={controls}
           variants={buttonAni}
-          className="flex justify-end px-0 xs:px-[10vw] mb-[25vh]"
+          className="flex justify-center sm:justify-end px-0 xs:px-[10vw] mb-[25vh]"
         >
           <Parallax offset={100}>
             <Link href="/videos">

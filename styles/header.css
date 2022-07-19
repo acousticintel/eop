@@ -42,11 +42,11 @@
 }
 
 .sidebar__cont{
-  @apply fixed h-screen w-4/5 right-0 backdrop-blur-lg bg-black bg-opacity-50 !z-50 grid items-center;
+  @apply fixed h-full min-h-screen w-4/5 right-0 backdrop-blur-lg bg-black bg-opacity-50 !z-50 grid items-center;
 }
 
 .sidebar__cont .menu__cont{
-  @apply absolute top-14 right-28;
+  @apply absolute top-6 lg:top-14 right-28;
 }
 
 .sidebar__cont > nav{

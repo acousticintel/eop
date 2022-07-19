@@ -114,7 +114,7 @@ export default function VideosPage() {
 
   return (
     <section className="videos_page">
-      <div className="grid lg:grid-cols-2">
+      <div className="flex flex-col lg:flex-row">
         <motion.div
           variants={listsAni}
           initial="initial"
@@ -128,6 +128,7 @@ export default function VideosPage() {
                   point ? "pointer-events-auto" : "pointer-events-none"
                 }`}
                 onMouseOver={() => setProject(p.name)}
+                onClick={() => setProject(p.name)}
               >
                 {p.name}
               </li>

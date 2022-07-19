@@ -81,6 +81,17 @@ export default function Sidebar() {
         >
           <span>About</span>
         </div>
+        {router.pathname !== "/videos" && (
+            <div
+              className="navItem"
+              onClick={() => {
+                scrollToPage("videos");
+                closeSide();
+              }}
+            >
+              <span>Our Work</span>
+            </div>
+          )}
         <Link href="/team">
           <div className="navItem" onClick={closeSide}>
             <span>Our Team</span>

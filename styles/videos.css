@@ -12,7 +12,7 @@
 }
 
 .videos_sec > .content p{
-  @apply w-full p-6 md:p-8 xl:p-10 ml-10 text-lg text-left z-50 rounded-xl flex items-start;
+  @apply w-full p-6 md:p-8 xl:p-10 text-lg text-left z-50 rounded-xl flex items-start;
 }
 
 .videos_sec .center-ver{
@@ -28,7 +28,7 @@ Video page
 }
 
 .videos_page .projects{
-  @apply grid grid-cols-2 lg:grid-cols-1 items-center justify-center;
+  @apply flex flex-1 lg:flex-col items-center justify-start  lg:justify-center overflow-x-auto;
 }
 
 .videos_page .projects li{
@@ -40,6 +40,5 @@ Video page
 }
 
 .videos_page .content{
-  height: calc(100vh - 10em);
-  @apply flex lg:flex-col overflow-x-auto overflow-y-hidden lg:overflow-y-auto lg:overflow-x-hidden py-[25vh];
+  @apply flex flex-1 h-[60vh] lg:h-[80vh] lg:flex-col overflow-x-auto overflow-y-hidden lg:overflow-y-auto lg:overflow-x-hidden py-[2.5vh] px-[2.5vh] lg:py-[25vh] lg:px-0;
 }

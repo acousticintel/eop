@@ -33,10 +33,6 @@ const Header = () => {
     scrollTarget(target);
   };
 
-  useEffect(() => {
-    console.log(router.pathname);
-  }, []);
-
   return (
     <motion.div
       id="about"

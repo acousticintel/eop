@@ -26,11 +26,14 @@ const Banner = ({ loading }) => {
   const [playMarquee, setPlayMarquee] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
+    let timer = setTimeout(() => {
       setPlayMarquee(true);
     }, 2000);
+    return () => { 
+      window.clearInterval(timer);
+    }
   }, []);
-  
+
   return (
     <div className="relative">
       {!loading && (
@@ -135,16 +138,16 @@ const BannerRowCenter = ({ title, playMarquee }) => {
         transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1 }}
         className="marquee__inner"
       >
-        <AnimatedLetters title={"whatever"}  />
+        <AnimatedLetters title={"whatever"} />
         <AnimatedLetters title={"it"} />
         <AnimatedLetters title={"takes"} />
-        <AnimatedLetters title={"whatever"}  />
+        <AnimatedLetters title={"whatever"} />
         <AnimatedLetters title={"it"} />
         <AnimatedLetters title={"takes"} />
-        <AnimatedLetters title={"whatever"}  />
+        <AnimatedLetters title={"whatever"} />
         <AnimatedLetters title={"it"} />
         <AnimatedLetters title={"takes"} />
-        <AnimatedLetters title={"whatever"}  />
+        <AnimatedLetters title={"whatever"} />
         <AnimatedLetters title={"it"} />
         <AnimatedLetters title={"takes"} />
       </motion.div>

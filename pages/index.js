@@ -12,12 +12,12 @@ import Videos from "../components/layout/Videos";
 export default function Home() {
   const loading = useRecoilValue(loadingAtom);
   return (
-    <>
+    <main className="max-w-screen overflow-x-hidden">
       <Banner loading={loading} />
       <About />
       <Videos />
       <Contact />
       <Footer />
-    </>
+    </main>
   );
 }
