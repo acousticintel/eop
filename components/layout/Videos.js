@@ -6,6 +6,7 @@ import { Element } from "react-scroll";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Parallax from "../elements/Parallax";
+import { BsFillCameraReelsFill } from "react-icons/bs";
 
 const banner = {
   animate: {
@@ -74,6 +75,28 @@ const lineAni = {
   },
 };
 
+const listsAni = {
+  animate: {
+    transition: {
+      delayChildren: 2,
+      staggerChildren: 0.5,
+    },
+  },
+};
+
+const listAni = {
+  initial: { x: 200, opacity: 0, scale: 0.75 },
+  animate: {
+    x: 0,
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeInOut",
+    },
+  },
+};
+
 const buttonAni = {
   initial: { x: 200, opacity: 0, scale: 0.75 },
   animate: {
@@ -114,13 +137,39 @@ export default function Videos() {
             </Parallax>
             <Parallax offset={75}>
               <motion.p variants={textAni} initial="initial" animate={controls}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum eu molestie sem. Etiam gravida ligula eu arcu
-                gravida, et aliquam nisi aliquam. Pellentesque a sodales elit.
-                Ut scelerisque diam erat, et dignissim orci laoreet ut. Donec
-                tincidunt elit ac consequat euismod. Mauris at tellus neque.
-                Duis pellentesque et mi sit.
+                The combined experience of the in-house team includes a vast
+                body of work in:
               </motion.p>
+            </Parallax>
+            <Parallax offset={100}>
+              <motion.ol
+                initial="initial"
+                animate={controls}
+                variants={listsAni}
+              >
+                <motion.li variants={listAni}>
+                  <BsFillCameraReelsFill size="1.5em" />{" "}
+                  <span>
+                    {" "}
+                    TV Programs (reality, magazine & scriptedcontent: both
+                    series and movies)
+                  </span>{" "}
+                </motion.li>
+                <motion.li variants={listAni}>
+                  <BsFillCameraReelsFill size="1.5em" />{" "}
+                  <span>Music Videos (both Kenyan and international)</span>{" "}
+                </motion.li>
+                <motion.li variants={listAni}>
+                  <BsFillCameraReelsFill size="1.5em" />{" "}
+                  <span>
+                    Documentaries, live event coverage (sports/concerts)
+                  </span>{" "}
+                </motion.li>
+                <motion.li variants={listAni}>
+                  <BsFillCameraReelsFill size="1.5em" />{" "}
+                  <span>TV commercials</span>{" "}
+                </motion.li>
+              </motion.ol>
             </Parallax>
           </div>
           <motion.div

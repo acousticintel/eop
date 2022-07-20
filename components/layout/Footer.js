@@ -2,8 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 //custom
-const FaTwitter = dynamic(
-  async () => (await import("react-icons/fa")).FaTwitter
+const AiFillInstagram = dynamic(
+  async () => (await import("react-icons/ai")).AiFillInstagram
 );
 const MdEmail = dynamic(async () => (await import("react-icons/md")).MdEmail);
 const FaPhone = dynamic(async () => (await import("react-icons/fa")).FaPhone);
@@ -16,7 +16,7 @@ export default function Footer() {
           <Image
             src="/images/logo.png"
             layout="fill"
-            className="object-contain"
+            objectFit="contain"
             alt=""
           />
         </div>
@@ -38,9 +38,9 @@ export default function Footer() {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://twitter.com/earth_taka?t=tMKgq8GMhsKKqpGkO-dQuQ&s=09"
+            href="https://www.instagram.com/eopfilms/?hl=en"
           >
-            <FaTwitter size="2em" />
+            <AiFillInstagram size="2em" />
           </a>
         </div>
       </div>

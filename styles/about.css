@@ -18,23 +18,3 @@
 .about_sec > .content p {
   @apply w-full p-6 md:p-8 lg:p-10 text-lg text-left;
 }
-
-.about_sec > .content ol {
-  @apply w-full px-6 md:px-8 lg:px-10 text-lg text-left;
-}
-
-.about_sec > .content ol li * {
-  @apply transition-all duration-200 ease-in-out;
-}
-
-.about_sec > .content ol li {
-  @apply flex gap-4 items-center mt-6 text-orange-300 hover:text-orange-500;
-}
-
-.about_sec > .content ol li > span {
-  @apply text-orange-300 origin-top-left transition-all duration-200 ease-in-out;
-}
-
-.about_sec > .content ol li:hover > span {
-  @apply text-orange-500 font-semibold;
-}
