@@ -1,18 +1,19 @@
 import Image from "next/image";
-//custom packages 
+//custom packages
 import { motion } from "framer-motion";
-
 
 const partners = [
   {
     name: "Enos Olik",
     position: "Creative Director",
     image: "/images/members/enos.jpg",
+    desc: "Enos has worked as a creative director on major TV shows/projects for Kenya's top TV networks, (live and pre-packaged) and TVC productions ( with some of Kenya's leading brands), Feature Films (SupАmodo) and is also one of the region's top music video director, he has worked with top artists across the continent and has directed some of Kenya's top and classic music videos.",
   },
   {
     name: "Joseph Mwangi",
     position: "Head of Production",
     image: "/images/members/joseph.jpg",
+    desc:"Joseph has experience as a producer and production manager having worked on all EOP films projects; live, pre-recorded, scripted and reality formats including major events and music video productions."
   },
 ];
 
@@ -36,6 +37,31 @@ const team = [
     name: "Fred Warui",
     position: "Assistant Camera / Focus Puller",
     image: "/images/members/fred.jpg",
+  },
+  {
+    name: "Ben Kiilu",
+    position: "Assistant Camera / Focus Puller",
+    image: "/images/members/ben.jpg",
+  },
+  {
+    name: "Isaac Awene",
+    position: "Gaffer",
+    image: "/images/members/isaac.png",
+  },
+  {
+    name: "Riziki Ambrose",
+    position: "Production Coordinator",
+    image: "/images/members/simon.png",
+  },
+  {
+    name: "Simon Kamau",
+    position: "Graphic Designer",
+    image: "/images/members/simon.png",
+  },
+  {
+    name: "Bella Wairimu",
+    position: "Make-up Artist",
+    image: "/images/members/bella.png",
   },
 ];
 
@@ -91,41 +117,78 @@ const listAni = {
 
 export default function TeamPage() {
   return (
-    <motion.div variants={pageAni} initial="initial" animate="animate" className="container mx-auto pb-20">
-      <motion.div  variants={pageHeadContAni} className="w-full md:w-2/3">
-        <motion.h6 variants={pageHeadAni} className="text-gray-400 font-extrabold">The Team</motion.h6>
-        <motion.h4  variants={pageHeadAni} className="text-5xl text-gray-200 font-bold w-2/3 mt-4">
-          Meet the team of experts in profession and profession
+    <motion.div
+      variants={pageAni}
+      initial="initial"
+      animate="animate"
+      className="container mx-auto pb-20"
+    >
+      <motion.div variants={pageHeadContAni} className="w-full md:w-2/3">
+        <motion.h6
+          variants={pageHeadAni}
+          className="text-gray-400 font-extrabold"
+        >
+          The Team
+        </motion.h6>
+        <motion.h4
+          variants={pageHeadAni}
+          className="text-5xl text-gray-200 font-bold w-2/3 mt-4"
+        >
+          Meet the team of experts
         </motion.h4>
-        <motion.p  variants={pageHeadAni} className="text-gray-300 font-medium mt-4">
+        <motion.p
+          variants={pageHeadAni}
+          className="text-gray-300 font-medium mt-4"
+        >
           To be a company our customers want us to be, it takes an eclectic
           group of passionate operators.Get to know the people leading the way
           at EOP Films
         </motion.p>
       </motion.div>
-      <motion.div variants={listsAni} className="grid gap-20 md:grid-cols-2 mt-10">
+      <motion.div
+        variants={listsAni}
+        className="grid gap-20 md:grid-cols-2 mt-10"
+      >
         {partners.map((p, i) => (
-          <motion.div variants={listAni} key={i} className="member bg-white bg-opacity-10 pb-5 max-w-sm mx-auto rounded-2xl overflow-hidden">
+          <motion.div
+            variants={listAni}
+            key={i}
+            className="member bg-white bg-opacity-10 pb-5 max-w-sm mx-auto rounded-2xl overflow-hidden"
+          >
             <div className="relative h-60 w-full">
-              <Image src={p.image} alt="" layout="fill" objectFit="cover" objectPosition="top"/>
+              <Image
+                src={p.image}
+                alt=""
+                layout="fill"
+                objectFit="cover"
+                objectPosition="top"
+              />
             </div>
             <h6 className="uppercase text-center text-xl font-extrabold mt-6 text-sky-400">
               {p.name}: {p.position}
             </h6>
-            <p className="mt-3 text-gray-300 px-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Recusandae neque quae nisi harum consequuntur distinctio
-              consequatur eos dolorem. Et voluptate blanditiis ut porro modi,
-              excepturi magnam eum vitae error tempore!
-            </p>
+            <p className="mt-3 text-gray-300 px-6">{p.desc}</p>
           </motion.div>
         ))}
       </motion.div>
-      <motion.div variants={listsAni} className="grid gap-20 md:grid-cols-2 lg:grid-cols-3 mt-20">
-      {team.map((p, i) => (
-          <motion.div variants={listAni} key={i} className="member bg-white bg-opacity-10 pb-5 w-full max-w-sm mx-auto rounded-2xl overflow-hidden">
+      <motion.div
+        variants={listsAni}
+        className="grid gap-20 md:grid-cols-2 lg:grid-cols-3 mt-20"
+      >
+        {team.map((p, i) => (
+          <motion.div
+            variants={listAni}
+            key={i}
+            className="member bg-white bg-opacity-10 pb-5 w-full max-w-sm mx-auto rounded-2xl overflow-hidden"
+          >
             <div className="relative h-60 w-full">
-              <Image src={p.image} alt="" layout="fill" objectFit="cover" objectPosition="top"/>
+              <Image
+                src={p.image}
+                alt=""
+                layout="fill"
+                objectFit="cover"
+                objectPosition="top"
+              />
             </div>
             <h6 className="uppercase text-center text-xl font-extrabold mt-6 text-sky-400">
               {p.name}
