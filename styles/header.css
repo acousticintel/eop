@@ -47,7 +47,7 @@
 }
 
 .sidebar__cont {
-  @apply fixed h-full min-h-screen w-4/5 right-0 backdrop-blur-lg bg-black text-white bg-opacity-50 !z-50 pt-40 grid items-start;
+  @apply fixed h-full min-h-screen w-4/5 right-0 backdrop-blur-lg bg-black text-white bg-opacity-50 !z-50 pt-[10vh] grid items-start;
 }
 
 .sidebar__cont .menu__cont {
@@ -55,7 +55,7 @@
 }
 
 .sidebar__cont > nav {
-  @apply grid w-full gap-6 items-center text-xl;
+  @apply grid w-full gap-2 sm:gap-6 items-center text-xl;
 }
 
 .sidebar__cont > nav .navItem {
