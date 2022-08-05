@@ -65,7 +65,7 @@ export default function Banner() {
         onChange={handleChange}
       >
         {videos.map((v, i) => (
-          <div className="!w-full h-screen">
+          <div className="!w-full h-screen" key={i}>
             <video
               autoPlay
               muted
