@@ -48,7 +48,7 @@ export default function Home() {
             ✕
           </label>
           <div className="py-10 flex justify-center items-center">
-            <ReactPlayer width="100%" className="player" url="https://www.youtube.com/watch?v=oPHHndqUsws&t=1s" />
+            <ReactPlayer controls={true} width="100%" className="player" url="https://www.youtube.com/watch?v=oPHHndqUsws&t=1s" />
           </div>
         </div>
       </div>
