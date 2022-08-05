@@ -1,17 +1,16 @@
-import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 //custom packages
-import { Link as ScrollLink, scroller } from "react-scroll";
-import { motion } from "framer-motion";
 import Menu from "../elements/Menu";
-import { useEffect } from "react";
+import { motion, useViewportScroll } from "framer-motion";
+import { Link as ScrollLink, scroller } from "react-scroll";
 
 const headerAnim = {
-  hidden: { opacity: 0, y: -200 },
+  hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    y: 0,
     transition: {
       ease: "easeInOut",
       duration: 1,
@@ -20,11 +19,12 @@ const headerAnim = {
   },
 };
 
-const Header = () => {
+const Header = ({ loading }) => {
   const router = useRouter();
+  const [solid, setSolid] = useState(false);
 
   const scrollTarget = (target) =>
-    scroller.scrollTo(target, { smooth: true, duration: 700 });
+    scroller.scrollTo(target, { smooth: true, duration: 700, offset: -250 });
 
   const scrollToPage = async (target) => {
     if (router.pathname !== "/") {
@@ -33,19 +33,32 @@ const Header = () => {
     scrollTarget(target);
   };
 
+  const { scrollY } = useViewportScroll();
+
+  scrollY.onChange((y) => {
+    let limit = window.innerHeight - 50;
+    if (y > limit || router.pathname !== "/") {
+      setSolid(true);
+    } else {
+      setSolid(false);
+    }
+    //console.log('y ', y)
+    //console.log(window.innerHeight)
+  });
+
   return (
     <motion.div
       id="about"
       variants={headerAnim}
       initial="hidden"
       animate="show"
-      className="header"
+      className={`header ${solid ? "solid" : ""}`}
     >
       <div className="header-inner">
         <Link href="/">
-          <div className="relative h-20 w-52 min-w-[100px]">
+          <div className="relative h-full w-72 min-w-[200px]">
             <Image
-              src="/images/logo-w.png"
+              src="/images/logo.png"
               layout="fill"
               className="object-contain"
               alt=""

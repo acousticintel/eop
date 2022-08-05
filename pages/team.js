@@ -121,24 +121,24 @@ export default function TeamPage() {
       variants={pageAni}
       initial="initial"
       animate="animate"
-      className="container mx-auto pb-20"
+      className="container mx-auto pt-40 pb-20"
     >
       <motion.div variants={pageHeadContAni} className="w-full md:w-2/3">
         <motion.h6
           variants={pageHeadAni}
-          className="text-gray-400 font-extrabold"
+          className="text-blue-900 font-extrabold"
         >
           The Team
         </motion.h6>
         <motion.h4
           variants={pageHeadAni}
-          className="text-5xl text-gray-200 font-bold w-2/3 mt-4"
+          className="text-5xl text-blue-700 font-bold w-2/3 mt-4"
         >
           Meet the team of experts
         </motion.h4>
         <motion.p
           variants={pageHeadAni}
-          className="text-gray-300 font-medium mt-4"
+          className="text-blue-800 font-medium mt-4"
         >
           To be a company our customers want us to be, it takes an eclectic
           group of passionate operators.Get to know the people leading the way
@@ -153,7 +153,7 @@ export default function TeamPage() {
           <motion.div
             variants={listAni}
             key={i}
-            className="member bg-white bg-opacity-10 pb-5 max-w-sm mx-auto rounded-2xl overflow-hidden"
+            className="member bg-white shadow pb-5 max-w-sm mx-auto rounded-2xl overflow-hidden"
           >
             <div className="relative h-60 w-full">
               <Image
@@ -167,7 +167,7 @@ export default function TeamPage() {
             <h6 className="uppercase text-center text-xl font-extrabold mt-6 text-sky-400">
               {p.name}: {p.position}
             </h6>
-            <p className="mt-3 text-gray-300 px-6">{p.desc}</p>
+            <p className="mt-3 text-blue-800 px-6">{p.desc}</p>
           </motion.div>
         ))}
       </motion.div>
@@ -179,7 +179,7 @@ export default function TeamPage() {
           <motion.div
             variants={listAni}
             key={i}
-            className="member bg-white bg-opacity-10 pb-5 w-full max-w-sm mx-auto rounded-2xl overflow-hidden"
+            className="member bg-white shadow-lg pb-5 w-full max-w-sm mx-auto rounded-2xl overflow-hidden"
           >
             <div className="relative h-60 w-full">
               <Image
@@ -193,7 +193,7 @@ export default function TeamPage() {
             <h6 className="uppercase text-center text-xl font-extrabold mt-6 text-sky-400">
               {p.name}
             </h6>
-            <h6 className="capitalize text-center font-medium text-gray-400">
+            <h6 className="capitalize text-center font-medium text-blue-900">
               {p.position}
             </h6>
           </motion.div>

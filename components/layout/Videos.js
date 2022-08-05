@@ -1,31 +1,23 @@
-import Image from "next/image";
-import Link from "next/link";
 import { useEffect } from "react";
-//custom
+import Image from "next/image";
+//custom packages
 import { Element } from "react-scroll";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Parallax from "../elements/Parallax";
-import { BsFillCameraReelsFill } from "react-icons/bs";
+import Link from "next/link";
+import Poster from "../elements/Poster";
 
 const banner = {
   animate: {
     transition: {
+      delay: 2,
       staggerChildren: 0.1,
     },
   },
 };
 
-const images = {
-  animate: {
-    transition: {
-      delayChildren: 0.5,
-      staggerChildren: 0.5,
-    },
-  },
-};
-
-const letterAni = {
+const letterAnim = {
   initial: { y: 400 },
   animate: {
     y: 0,
@@ -36,33 +28,7 @@ const letterAni = {
   },
 };
 
-const imageAni = {
-  initial: { x: 50, opacity: 0, scale: 0.75 },
-  animate: {
-    x: 0,
-    scale: 1,
-    opacity: 1,
-    transition: {
-      duration: 1,
-      ease: [0.6, 0.01, -0.05, 0.95],
-    },
-  },
-};
-
-const textAni = {
-  initial: { y: -40, opacity: 0 },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      delay: 1,
-      duration: 1,
-      ease: [0.6, 0.01, -0.05, 0.95],
-    },
-  },
-};
-
-const lineAni = {
+const lineAnim = {
   initial: { width: 0, opacity: 0 },
   animate: {
     width: "30%",
@@ -70,34 +36,12 @@ const lineAni = {
     transition: {
       delay: 0.5,
       duration: 2,
-      ease: [0.6, 0.01, -0.05, 0.95],
-    },
-  },
-};
-
-const listsAni = {
-  animate: {
-    transition: {
-      delayChildren: 2,
-      staggerChildren: 0.5,
-    },
-  },
-};
-
-const listAni = {
-  initial: { x: 200, opacity: 0, scale: 0.75 },
-  animate: {
-    x: 0,
-    scale: 1,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
       ease: "easeInOut",
     },
   },
 };
 
-const buttonAni = {
+const buttonAnim = {
   initial: { x: 200, opacity: 0, scale: 0.75 },
   animate: {
     x: 0,
@@ -111,149 +55,75 @@ const buttonAni = {
   },
 };
 
-export default function Videos() {
+export default function Videos1() {
   const controls = useAnimation();
   const [ref, inView] = useInView();
 
   useEffect(() => {
     if (inView) {
       controls.start("animate");
+    } else {
+      controls.start("initial");
     }
   }, [controls, inView]);
 
+  const videos = [
+    {
+      name: "movie 1",
+    },
+    {
+      name: "movie 1",
+    },
+    {
+      name: "movie 1",
+    },
+    {
+      name: "movie 1",
+    },
+    {
+      name: "movie 1",
+    },
+    {
+      name: "movie 1",
+    },
+    {
+      name: "movie 1",
+    },
+    {
+      name: "movie 1",
+    },
+  ];
+
   return (
     <Element name="videos">
-      <section className="h-full container my-[20vh] mx-auto" ref={ref}>
-        <div className="videos_sec">
-          <div className="content order-2 xl:order-1">
-            <Parallax offset={50}>
-              <AnimatedLetters title={"Works"} controls={controls} />
-              <motion.div
-                variants={lineAni}
-                initial="initial"
-                animate={controls}
-                className="divider bg-orange-400 h-1.5"
-              />
-            </Parallax>
-            <Parallax offset={75}>
-              <motion.p variants={textAni} initial="initial" animate={controls}>
-                The combined experience of the in-house team includes a vast
-                body of work in:
-              </motion.p>
-            </Parallax>
-            <Parallax offset={100}>
-              <motion.ol
-                initial="initial"
-                animate={controls}
-                variants={listsAni}
-              >
-                <motion.li variants={listAni}>
-                  <BsFillCameraReelsFill size="1.5em" />{" "}
-                  <span>
-                    {" "}
-                    TV Programs (reality, magazine & scriptedcontent: both
-                    series and movies)
-                  </span>{" "}
-                </motion.li>
-                <motion.li variants={listAni}>
-                  <BsFillCameraReelsFill size="1.5em" />{" "}
-                  <span>Music Videos (both Kenyan and international)</span>{" "}
-                </motion.li>
-                <motion.li variants={listAni}>
-                  <BsFillCameraReelsFill size="1.5em" />{" "}
-                  <span>
-                    Documentaries, live event coverage (sports/concerts)
-                  </span>{" "}
-                </motion.li>
-                <motion.li variants={listAni}>
-                  <BsFillCameraReelsFill size="1.5em" />{" "}
-                  <span>TV commercials</span>{" "}
-                </motion.li>
-              </motion.ol>
-            </Parallax>
-          </div>
+      <div ref={ref}>
+        <div className="ml-5 my-20 max-w-fit">
+          <AnimatedLetters title={"Our Works"} controls={controls} />
           <motion.div
-            variants={images}
+            variants={lineAnim}
             initial="initial"
             animate={controls}
-            className="relative bottom-0 mr-10 -z-10 order-1 xl:order-2 row-span-2"
-          >
-            <Parallax offset={25}>
-              <div className="absolute w-[30vw] h-[10vh] xl:h-[30vh] right-[12.5vw] xl:left-[12.5vw] bottom-0 rounded-2xl overflow-hidden z-20">
-                <motion.div
-                  variants={imageAni}
-                  className="relative w-full h-full z-10"
-                >
-                  <Image
-                    src="https://api.lorem.space/image/movie?hash=3174"
-                    layout="fill"
-                    className="object-cover"
-                    alt=""
-                  />
-                </motion.div>
-              </div>
-            </Parallax>
-            <Parallax offset={100}>
-              <div className="absolute w-[25vw] h-[10vh] xl:h-[25vh] center-ver right-[20vw] xl:left-[20vw] rounded-2xl overflow-hidden z-30">
-                <motion.div
-                  variants={imageAni}
-                  className="relative w-full h-full z-10"
-                >
-                  <Image
-                    src="https://api.lorem.space/image/movie?hash=3175"
-                    layout="fill"
-                    className="object-cover"
-                    alt=""
-                  />
-                </motion.div>
-              </div>
-            </Parallax>
-            <Parallax offset={75}>
-              <div className="absolute w-[25vw] h-[15vh] xl:h-[35vh] right-[12vw] xl:left-[12vw] rounded-2xl overflow-hidden z-40">
-                <motion.div
-                  variants={imageAni}
-                  className="relative w-full h-full z-10"
-                >
-                  <Image
-                    src="https://api.lorem.space/image/movie?hash=3176"
-                    layout="fill"
-                    className="object-cover"
-                    alt=""
-                  />
-                </motion.div>
-              </div>
-            </Parallax>
-            <Parallax offset={100}>
-              <div className="absolute w-[30vw] h-[25vh] xl:h-[35vh] center-ver right-[0] xl:left-0 mx-auto rounded-2xl overflow-hidden z-40">
-                <motion.div
-                  variants={imageAni}
-                  className="relative w-full h-full z-20"
-                >
-                  <Image
-                    src="/images/famous.png"
-                    layout="fill"
-                    className="object-cover"
-                    alt=""
-                    la
-                  />
-                </motion.div>
-              </div>
-            </Parallax>
-          </motion.div>
+            className="divider bg-orange-400 h-1.5 -mt-5"
+          />
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full h-full mt-5">
+          {videos.map((v, i) => (
+            <Poster key={i} index={i} data={v} controls={controls}/>
+          ))}
         </div>
         <motion.div
           initial="initial"
           animate={controls}
-          variants={buttonAni}
+          variants={buttonAnim}
           className="flex justify-center sm:justify-end px-0 xs:px-[10vw] mb-[25vh]"
         >
           <Parallax offset={100}>
             <Link href="/videos">
-              <div className="fancy-button">See Our Works</div>
+              <div className="fancy-button">See more Works</div>
             </Link>
           </Parallax>
         </motion.div>
-      </section>
+      </div>
     </Element>
   );
 }
@@ -266,7 +136,7 @@ const AnimatedLetters = ({ title, controls }) => (
     animate={controls}
   >
     {[...title].map((letter, i) => (
-      <motion.span key={i} className="row-letter" variants={letterAni}>
+      <motion.span key={i} className="row-letter" variants={letterAnim}>
         {letter}
       </motion.span>
     ))}

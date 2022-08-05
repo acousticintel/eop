@@ -1,158 +1,90 @@
-import React, { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
+//custom packages
 import { motion } from "framer-motion";
-import { Link } from "react-scroll";
-
-const banner = {
-  animate: {
-    transition: {
-      delayChildren: 0.4,
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const letterAni = {
-  initial: { y: 400 },
-  animate: {
-    y: 0,
-    transition: {
-      ease: [0.6, 0.01, -0.05, 0.95],
-      duration: 1,
-    },
-  },
-};
-
-const Banner = ({ loading }) => {
-  const [playMarquee, setPlayMarquee] = useState(false);
-
-  useEffect(() => {
-    let timer = setTimeout(() => {
-      setPlayMarquee(true);
-    }, 2000);
-    return () => { 
-      window.clearInterval(timer);
-    }
-  }, []);
-
-  return (
-    <div className="relative">
-      {!loading && (
-        <div className="transition-image final">
-          <motion.img
-            transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1.6 }}
-            src={`/images/famous.png`}
-            layout
-            layoutId="main-image-1"
-          />
-        </div>
-      )}
-      <motion.div className="banner" variants={banner}>
-        <BannerRowCenter playMarquee={playMarquee} />
-        <motion.div
-          initial={{ opacity: 0, y: 80 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            ease: "easeInOut",
-            duration: 1,
-            delay: 3,
-          }}
-          className="message-col"
-        >
-          <span className="row-message">
-            Nyota is a talented rising star struggling with the harsh reality of
-            the entertainment world;
-            <br />
-            <br />
-            Nikita is star is fading after a series of scandals. Her producer,
-            Magic, faces his own demons as he tries to keep Nikita at number
-            one.
-          </span>
-        </motion.div>
-        <BannerRowBottom />
-      </motion.div>
-    </div>
-  );
-};
-
-const AnimatedLetters = ({ title, disabled }) => (
-  <motion.span
-    className="row-title"
-    variants={disabled ? null : banner}
-    initial="initial"
-    animate="animate"
-  >
-    {[...title].map((letter, i) => (
-      <motion.span
-        key={i}
-        className="row-letter"
-        variants={disabled ? null : letterAni}
-      >
-        {letter}
-      </motion.span>
-    ))}
-  </motion.span>
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+//dynamic
+const HiOutlinePlay = dynamic(
+  async () => (await import("react-icons/hi")).HiOutlinePlay
 );
 
-const BannerRowBottom = () => {
-  return (
-    <Link to="about" smooth={true} className={"banner-row center"}>
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 1, delay: 1 }}
-        className="scroll"
-      >
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            ease: "easeInOut",
-            duration: 1,
-            delay: 1.8,
-          }}
-        >
-          scroll
-        </motion.span>
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            ease: "easeInOut",
-            duration: 1,
-            delay: 1.8,
-          }}
-        >
-          down
-        </motion.span>
-      </motion.div>
-    </Link>
-  );
+const heroAnim = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      ease: [0.6, 0.01, -0.05, 0.95],
+      duration: 1.6,
+    },
+  },
 };
 
-const BannerRowCenter = ({ title, playMarquee }) => {
-  return (
-    <div className={`banner-row marquee  ${playMarquee && "animate"}`}>
-      <motion.div
-        initial={{ y: 310 }}
-        animate={{ y: 0 }}
-        transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1 }}
-        className="marquee__inner"
-      >
-        <AnimatedLetters title={"whatever"} />
-        <AnimatedLetters title={"it"} />
-        <AnimatedLetters title={"takes"} />
-        <AnimatedLetters title={"whatever"} />
-        <AnimatedLetters title={"it"} />
-        <AnimatedLetters title={"takes"} />
-        <AnimatedLetters title={"whatever"} />
-        <AnimatedLetters title={"it"} />
-        <AnimatedLetters title={"takes"} />
-        <AnimatedLetters title={"whatever"} />
-        <AnimatedLetters title={"it"} />
-        <AnimatedLetters title={"takes"} />
-      </motion.div>
-    </div>
-  );
-};
+export default function Banner() {
+  const [index, setIndex] = useState();
 
-export default Banner;
+  const handleChange = (e) => {
+    setIndex(e);
+  };
+
+  useEffect(() => {
+    //console.log(index);
+  }, [index]);
+
+  const videos = [
+    {
+      name: "movie 1",
+      file:"/images/test.mp4"
+    },
+    {
+      name: "movie 2",
+      file:"/images/test1.mp4"
+    },
+    {
+      name: "movie 3",
+      file:"/images/test2.mp4"
+    },
+    {
+      name: "movie 4",
+      file:"/images/test3.mp4"
+    },
+  ];
+
+  return (
+    <motion.div variants={heroAnim} initial="hidden" animate="show" className="w-full relative overflow-hidden">
+      <Carousel
+        autoPlay
+        autoFocus
+        infiniteLoop
+        interval="5000"
+        showArrows={false}
+        showThumbs={false}
+        showStatus={false}
+        stopOnHover={false}
+        transitionTime="1500"
+        onChange={handleChange}
+      >
+        {videos.map((v, i) => (
+          <div className="!w-full h-screen">
+            <video
+              autoPlay
+              muted
+              loop
+              style={{ height: "100%", width: "100%", objectFit: "cover" }} //object-fit:cover
+            >
+              <source src={v.file} type="video/mp4" />
+            </video>
+            <div className="legend">
+              <div className="video_link">
+                <p>{v.name}</p>
+                <a>
+                  <HiOutlinePlay size="2em" />
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </Carousel>
+    </motion.div>
+  );
+}

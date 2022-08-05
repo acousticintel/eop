@@ -54,50 +54,16 @@ const Loader = ({ setLoading }) => {
         exit="exit"
         className="loader-inner"
       >
-        <ImageBlock variants={item} id="image-1" />
         <motion.div variants={itemMain} className="transition-image">
           <motion.img
             layout
             layoutId="main-image-1"
-            src={`/images/famous.png`}
+            src={`/images/logo.png`}
           />
         </motion.div>
-        <ImageBlock variants={item} id="image-3" />
-        <ImageBlock variants={item} id="image-4" />
-        <ImageBlock variants={item} id="image-5" />
       </motion.div>
     </motion.div>
   );
 };
 
-export const ImageBlock = ({ posX, posY, variants, id }) => {
-  return (
-    <motion.div
-      variants={variants}
-      className={`relative image-block ${id}`}
-      style={{
-        top: `${posY}vh`,
-        left: `${posX}vw `,
-      }}
-    >
-      {id === "image-1" ? (
-        <Image
-          src={`/images/paa.png`}
-          fallback={`/images/paa.png`}
-          objectFit="cover"
-          layout="fill"
-          alt={id}
-        />
-      ) : (
-        <Image
-          src={`https://api.lorem.space/image/movie?hash=317${id}`}
-          fallback={`/images/${id}.jpg`}
-          objectFit="cover"
-          layout="fill"
-          alt={id}
-        />
-      )}
-    </motion.div>
-  );
-};
 export default Loader;

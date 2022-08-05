@@ -34,7 +34,7 @@ export default function Layout({ children, path }) {
         ) : (
           <>
             <Sidebar /> 
-            <Header />
+            <Header loading={loading}/>
             {children}
           </>
         )}

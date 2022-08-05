@@ -150,7 +150,7 @@ export default function Contact() {
       });
   };
   return (
-    <Element name="contact" className="bg-slate-900">
+    <Element name="contact">
       <section id="contact" className="contact_sec" ref={ref}>
         <div className="w-full">
           <AnimatedLetters title={"Contact Us"} controls={controls} />
@@ -173,7 +173,7 @@ export default function Contact() {
                 />
                 <label
                   htmlFor="email"
-                  className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-8 peer-focus:text-gray-200 peer-focus:text-sm"
+                  className="absolute left-0 -top-3.5 text-slate-800 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-600 peer-placeholder-shown:top-2 peer-focus:-top-8 peer-focus:text-slate-400 peer-focus:text-sm"
                 >
                   Email address
                 </label>
@@ -188,7 +188,7 @@ export default function Contact() {
                 />
                 <label
                   htmlFor="message"
-                  className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-8 peer-focus:text-gray-200 peer-focus:text-sm"
+                  className="absolute left-0 -top-3.5 text-slate-800 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-600 peer-placeholder-shown:top-2 peer-focus:-top-8 peer-focus:text-slate-400 peer-focus:text-sm"
                 >
                   Message
                 </label>

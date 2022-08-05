@@ -1,32 +1,37 @@
 .header {
-  @apply xs:text-lg flex justify-center h-24 xs:h-40 text-white p-3 xs:px-28;  
+  @apply fixed z-40 xs:text-lg flex w-full justify-center h-24 xs:h-40 text-blue-900 font-medium p-3 lg:px-28
+  transition-all duration-700 ease-in-out;
+}
+
+.header.solid {
+  @apply bg-white p-3 xs:px-28;
 }
 
 .header .header-inner {
-  @apply w-full flex gap-4 items-center justify-between
+  @apply w-full flex gap-4 items-center justify-between;
 }
 
 .header .header-inner .nav {
-  @apply hidden xl:flex  items-center justify-center 
+  @apply hidden xl:flex  items-center justify-center;
 }
 
 .header .header-inner .nav .navItem {
-  @apply list-none !mx-10 cursor-pointer; 
+  @apply list-none !mx-10 cursor-pointer;
 }
 
 .header .header-inner .nav .navItem span {
   text-decoration: none;
-  @apply text-white whitespace-nowrap;
+  @apply whitespace-nowrap;
 }
 
 .header .header-inner .nav .navItem.cont span {
   text-decoration: none;
-  @apply text-white sm:border-b-2 border-white whitespace-nowrap pb-3
+  @apply sm:border-b-2 border-blue-900 whitespace-nowrap pb-3;
 }
 
 .header .header-inner .contact {
   @apply flex flex-1 xl:hidden;
-} 
+}
 
 .header .header-inner .contact {
   @apply flex flex-1 xl:hidden;
@@ -34,25 +39,25 @@
 
 .header .header-inner .menu__cont {
   @apply block xl:hidden;
-} 
+}
 
 .header .header-inner .contact span {
   text-decoration: none;
-  @apply text-white xs:border-b-2 border-white whitespace-nowrap pb-3
+  @apply hidden sm:block xs:border-b-2 border-blue-900 whitespace-nowrap pb-3;
 }
 
-.sidebar__cont{
+.sidebar__cont {
   @apply fixed h-full min-h-screen w-4/5 right-0 backdrop-blur-lg bg-black bg-opacity-50 !z-50 grid items-center;
 }
 
-.sidebar__cont .menu__cont{
+.sidebar__cont .menu__cont {
   @apply absolute top-6 lg:top-14 right-28;
 }
 
-.sidebar__cont > nav{
-  @apply grid w-full gap-10 items-center text-xl
+.sidebar__cont > nav {
+  @apply grid w-full gap-10 items-center text-xl;
 }
 
 .sidebar__cont > nav .navItem {
-  @apply list-none cursor-pointer !w-full py-10 !text-center hover:text-orange-400 hover:font-semibold transition-all duration-500 ease-in-out
+  @apply list-none cursor-pointer !w-full py-10 !text-center hover:text-orange-400 hover:font-semibold transition-all duration-500 ease-in-out;
 }

@@ -10,11 +10,11 @@ const FaPhone = dynamic(async () => (await import("react-icons/fa")).FaPhone);
 
 export default function Footer() {
   return (
-    <footer className="footer px-10 py-20 bg-orange-400 flex w-full">
+    <footer className="footer px-10 py-20 text-white flex w-full">
       <div className="w-full flex flex-col items-start">
         <div className="relative h-20 w-52">
           <Image
-            src="/images/logo.png"
+            src="/images/logo-w.png"
             layout="fill"
             objectFit="contain"
             alt=""

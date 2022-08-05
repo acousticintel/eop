@@ -21,7 +21,8 @@ html {
 
 body{
   caret-color: transparent; 
-  @apply font-body custom-scroll bg-slate-900 text-white;
+  color:#100351;
+  @apply font-body custom-scroll bg-gray-100;
 }
 
 /* width */
@@ -67,7 +68,9 @@ body{
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  @apply relative w-full max-w-[460px] cursor-pointer rotate-[-2deg] bg-orange-400 border text-white text-center flex justify-center font-semibold hover:font-bold;
+  background: #100351;
+  @apply relative w-full max-w-[460px] cursor-pointer rotate-[-2deg] border 
+  text-white text-center flex justify-center font-semibold hover:font-bold;
 }
 
 .fancy-button:focus {
@@ -90,4 +93,8 @@ body{
     padding: .75rem 3rem;
     font-size: 1.25rem;
   }
+}
+
+footer{
+  background-color: #100351;
 }

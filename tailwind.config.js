@@ -11,6 +11,9 @@ module.exports = {
       xs: "475px",
       ...defaultTheme.screens,
     },
+    color:{
+      "eop": "#100351"
+    },
     extend: {
       fontSize: {
         "12xl": "12rem",

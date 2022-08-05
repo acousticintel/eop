@@ -1,10 +1,11 @@
 .contact_sec {
-  @apply container mx-auto px-6 pt-10 pb-32 caret-white flex flex-col xl:flex-row items-center;
+  color: #100351;
+  @apply container mx-auto px-6 pt-10 pb-32 caret-black flex flex-col xl:flex-row items-center;
 }
 
 .contact_sec .row-title,
 .contact_sec .row-letter {
-  @apply relative inline-block text-6xl sm:text-7xl md:text-8xl font-semibold whitespace-nowrap tracking-wide overflow-hidden text-white;
+  @apply relative inline-block text-6xl sm:text-7xl md:text-8xl font-semibold whitespace-nowrap tracking-wide overflow-hidden ;
 }
 
 .contact_sec > .cont {
@@ -16,15 +17,16 @@
 }
 
 .contact_sec form input{
-  @apply h-10 w-full border-b-2 border-slate-300 bg-transparent text-white placeholder-transparent focus:outline-none focus:border-orange-400;
+  @apply h-10 w-full border-b-2 border-slate-300 bg-transparent  placeholder-transparent focus:outline-none focus:border-orange-400;
 }
 
 .contact_sec form textarea{
-  @apply h-32 w-full border-b-2 border-gray-300 bg-transparent text-white placeholder-transparent focus:outline-none focus:border-orange-400;
+  @apply h-32 w-full border-b-2 border-gray-300 bg-transparent  placeholder-transparent focus:outline-none focus:border-orange-400;
 }
 
 .contact_sec button {
-  @apply px-8 py-4 text-white font-semibold bg-orange-400 rounded-xl hover:bg-orange-600
+  background: #100351;
+  @apply px-8 py-4  font-semibold rounded-xl text-white
   transition-all transform ease-in-out duration-500;
 }
 

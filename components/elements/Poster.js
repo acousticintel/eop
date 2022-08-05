@@ -2,12 +2,22 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 //custom packages
 import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import YouTube from "react-youtube";
+
+const headerAnim = {
+  initial: { opacity: 0, y: 20 },
+  animate: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: "easeInOut",
+      duration: 1,
+      delay: 0.25 * i,
+    },
+  }),
+};
 
 const posterAnim = {
   initial: {
-    scale: 0.8,
     opacity: 0,
     transition: {
       delay: 1,
@@ -15,227 +25,58 @@ const posterAnim = {
       duration: 1,
     },
   },
-  norm: {
-    scale: 0.8,
+  hovered: {
     opacity: 0.75,
     transition: {
       ease: "easeInOut",
-      duration: 1,
-    },
-  },
-  selected: {
-    scale: 1,
-    opacity: 1,
-    transition: {
-      ease: "easeInOut",
-      duration: 0.25,
+      duration: 0.5,
     },
   },
 };
 
-const overlayAnim = {
-  norm: {
-    opacity: 0.75,
-    transition: {
-      ease: "easeInOut",
-      duration: 1,
-    },
-  },
-  selected: {
-    opacity: 0,
-    transition: {
-      ease: "easeInOut",
-      duration: 1,
-    },
-  },
-  hovered: {
-    opacity: 0.5,
-    transition: {
-      ease: "easeInOut",
-      duration: 1,
-    },
-  },
-};
-
-const buttonsContAnim = {
-  hovered: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const buttonAnim = {
-  selected: {
-    x: 1000,
-    opacity: 0,
-    transition: {
-      ease: "easeInOut",
-      duration: 1,
-    },
-  },
-  hovered: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      ease: "easeInOut",
-      duration: 1,
-    },
-  },
-};
-
-export default function Poster({ selected, setSelected, data, index }) {
-  const controls = useAnimation("norm");
-  const hovControls = useAnimation("selected");
-  const [ref, inView] = useInView();
-  const [eventLis, setEventLis] = useState(null);
-  const [error, setError] = useState(false);
+export default function Poster({ selected, setSelected, data, index, controls }) {
+  const hovControls = useAnimation("initial");
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
-    //show trailers if selected for x time
-    let timer = null;
-    if (selected === data.name && inView) {
-      timer = setTimeout(() => {
-        hovControls.start("hovered");
-      }, 2000);
-    }
-    return () => { 
-      window.clearInterval(timer);
-    }
-  }, [selected, inView]);
-
-  useEffect(() => {
-    if (selected === data.name && inView) {
-      controls.start("selected");
-      hovControls.start("selected");
-    } else {
-      controls.start("norm");
-      hovControls.start("norm");
-    }
-  }, [controls, hovControls, inView, selected, data]);
-
-  useEffect(() => {
-    if (hovered && inView) {
+    if (hovered) {
       hovControls.start("hovered");
     } else {
-      hovControls.start("selected");
+      hovControls.start("initial");
     }
-  }, [controls, hovControls, inView, hovered]);
-
-  useEffect(() => {
-    if (!hovered && eventLis?.pauseVideo) {
-      eventLis?.pauseVideo && eventLis.pauseVideo();
-    }
-  }, [hovered]);
-
-  useEffect(() => {
-    //console.log(index);
-  }, [index]);
-
-  const opts = {
-    height: "100%",
-    width: "100%",
-    playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      color: "white",
-      autoplay: 1,
-      enablejsapi: 1,
-      modestbranding: 1,
-    },
-  };
-
-  const onReady = (event) => {
-    // access to player in all event handlers via event.target
-    event.target.pauseVideo();
-    setEventLis(event.target);
-  };
+  }, [hovControls, hovered]);
 
   return (
     <motion.div
-      ref={ref}
-      variants={posterAnim}
+      custom={index}
       initial="initial"
       animate={controls}
+      variants={headerAnim}
       onMouseDown={() => setHovered(true)}
       onMouseOver={() => setHovered(true)}
       onMouseOut={() => setHovered(false)}
-      className="relative h-[60vh] lg:h-[60vh] w-[80vw] lg:w-full"
+      className="relative w-full h-full min-h-[350px]"
     >
       <motion.div
-        initial="selected"
+        initial="initial"
         animate={hovControls}
-        variants={buttonsContAnim}
-        className="absolute rounded-full bottom-10 right-10 z-50 grid justify-center"
+        variants={posterAnim}
+        className="absolute w-full h-full flex justify-center items-center abs-center bg-black z-10"
+      />
+      <div
+        className="absolute w-full h-full flex justify-center items-center abs-center text-white uppercase z-20"
       >
-        <motion.div variants={buttonAnim} className="mx-auto">
-          <div className="flex items-center w-full">
-            <div className="image z-50 relative w-40 h-40 rounded-3xl overflow-hidden">
-              {error ? (
-                <Image
-                  src={data.image}
-                  layout="fill"
-                  objectFit="cover"
-                  objectPosition="top"
-                  alt=""
-                />
-              ) : (
-                <YouTube
-                  videoId={data.trailer}
-                  opts={opts}
-                  onReady={onReady}
-                  onError={() => setError(true)}
-                />
-              )}
-            </div>
-            <h6 className="font-bold text-white z-50 ml-4">
-              Watch
-              <br />
-              Trailer
-            </h6>
-          </div>
-        </motion.div>
-        <motion.div variants={buttonAnim} className="mx-auto mt-6">
-          <div className="flex items-center w-full">
-            <div className="image z-50 relative w-20 h-20 rounded-3xl overflow-hidden">
-              <Image
-                src={data.image}
-                layout="fill"
-                objectFit="cover"
-                objectPosition="top"
-                alt=""
-              />
-            </div>
-            <h6 className="font-bold text-white text-lg z-50 ml-4">
-              Watch on <br />
-              <span className="text-2xl">Service</span>
-            </h6>
-          </div>
-        </motion.div>
-      </motion.div>
+        <div className="text-center">
+          <h1 className="text-xl font-semibold">Movie Title</h1>
+          <h2 className="text-sm">Movie Tag</h2>
+          <h2 className="font font-medium">Directed By Enos Olik</h2>
+        </div>
+      </div>
       <Image
-        src={data.image}
+        alt={data?.name || ""}
         layout="fill"
         objectFit="cover"
-        objectPosition="top"
-        alt=""
-      />
-      <motion.div
-        onClick={() => setSelected(data.name)}
-        variants={overlayAnim}
-        animate={hovControls}
-        className="absolute w-full h-full bg-black bg-opacity-70 "
-      />
-      <motion.div
-        onMouseDown={() => {
-          setSelected(data.name);
-          setHovered(true);
-        }}
-        onMouseOver={() => {
-          setSelected(data.name);
-          setHovered(true);
-        }}
-        className="absolute abs-center w-full h-[60%] z-40"
+        src={`https://api.lorem.space/image/movie?hash=317${index}`}
       />
     </motion.div>
   );

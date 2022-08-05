@@ -18,3 +18,7 @@
 .about_sec > .content p {
   @apply w-full p-6 md:p-8 lg:p-10 text-lg text-left;
 }
+
+.row-title, .row-letter {
+  @apply relative inline-block text-6xl sm:text-7xl md:text-8xl font-semibold whitespace-nowrap tracking-wide overflow-hidden;
+}
