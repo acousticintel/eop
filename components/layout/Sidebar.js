@@ -49,7 +49,7 @@ export default function Sidebar() {
     } else {
       controls.start("hidden");
     }
-  }, [open]);
+  }, [controls, open]);
 
   const closeSide = () => {
     console.log("run");
@@ -82,16 +82,16 @@ export default function Sidebar() {
           <span>About</span>
         </div>
         {router.pathname !== "/videos" && (
-            <div
-              className="navItem"
-              onClick={() => {
-                scrollToPage("videos");
-                closeSide();
-              }}
-            >
-              <span>Our Work</span>
-            </div>
-          )}
+          <div
+            className="navItem"
+            onClick={() => {
+              scrollToPage("videos");
+              closeSide();
+            }}
+          >
+            <span>Our Work</span>
+          </div>
+        )}
         <Link href="/team">
           <div className="navItem" onClick={closeSide}>
             <span>Our Team</span>

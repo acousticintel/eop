@@ -56,7 +56,7 @@ export default function Banner() {
         autoPlay
         autoFocus
         infiniteLoop
-        interval="5000"
+        interval="7500"
         showArrows={false}
         showThumbs={false}
         showStatus={false}
@@ -75,12 +75,12 @@ export default function Banner() {
               <source src={v.file} type="video/mp4" />
             </video>
             <div className="legend">
-              <div className="video_link">
+              <label htmlFor="my-modal" className="video_link">
                 <p>{v.name}</p>
                 <a>
                   <HiOutlinePlay size="2em" />
                 </a>
-              </div>
+              </label>
             </div>
           </div>
         ))}
