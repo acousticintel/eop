@@ -33,20 +33,28 @@ export default function Banner() {
 
   const videos = [
     {
-      name: "movie 1",
-      file:"/images/test.mp4"
+      name: "Famous (TV Series)",
+      file:"/videos/famous.mov"
     },
     {
-      name: "movie 2",
-      file:"/images/test1.mp4"
+      name: "FX Pesa (TVC)",
+      file:"/videos/fxpesa.mov"
     },
     {
-      name: "movie 3",
-      file:"/images/test2.mp4"
+      name: "KCB Go Ahead (Docu)",
+      file:"/videos/kcb.mov"
     },
     {
-      name: "movie 4",
-      file:"/images/test3.mp4"
+      name: "Kibo (TVC)",
+      file:"/videos/kibo.mov"
+    },
+    {
+      name: "Sasini (TVC)",
+      file:"/videos/sasini.mov"
+    },
+    {
+      name: "Sky Girls - PAA (TV Series)",
+      file:"/videos/sky.mov"
     },
   ];
 
