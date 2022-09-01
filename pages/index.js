@@ -14,6 +14,7 @@ import Videos from "../components/layout/Videos";
 export default function Home() {
   const loading = useRecoilValue(loadingAtom);
   const [hideHelper, setHideHelper] = useState(false);
+  const [selected, setSelected] = useState(false);
 
   useEffect(() => {
     let timer = setTimeout(() => {
@@ -48,7 +49,7 @@ export default function Home() {
             ✕
           </label>
           <div className="py-10 flex justify-center items-center">
-            <ReactPlayer controls={true} width="100%" className="player" url="https://www.youtube.com/watch?v=oPHHndqUsws&t=1s" />
+            <ReactPlayer controls={true} width="100%" className="player" url="https://player.vimeo.com/video/671400778?h=046604dc66" />
           </div>
         </div>
       </div>

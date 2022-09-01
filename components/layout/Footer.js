@@ -25,12 +25,17 @@ export default function Footer() {
       <div className=" flex flex-col items-end">
         <span className="text-3xl font-semibold">Social</span>
         <div className="grid grid-flow-col gap-4 mt-6">
-          <Link href="tel:+254720000000">
+          <Link href="tel:+254722767373">
             <a>
               <FaPhone size="2em" />
             </a>
           </Link>
-          <Link href="mailto:contant@eop.com">
+          <Link href="tel:+254723974848">
+            <a>
+              <FaPhone size="2em" />
+            </a>
+          </Link>
+          <Link href="mailto:info@eopfilms.com">
             <a>
               <MdEmail size="2em" />
             </a>

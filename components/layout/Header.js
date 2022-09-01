@@ -98,7 +98,7 @@ const Header = ({ loading }) => {
               scrollToPage("contact");
             }}
           >
-            <span>{`Let's work together`}</span>
+            <span>{`Lights, Camera... Magic!`}</span>
           </div>
         </nav>
         <ScrollLink
@@ -106,7 +106,7 @@ const Header = ({ loading }) => {
           to="contact"
           smooth={true}
         >
-          <span href="/contact">{`Let's work together`}</span>
+          <span href="/contact">{`Lights, Camera... Magic!`}</span>
         </ScrollLink>
         <div className="menu__cont">
           <Menu />

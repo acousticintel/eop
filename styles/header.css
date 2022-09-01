@@ -1,5 +1,5 @@
 .header {
-  @apply fixed z-40 xs:text-lg flex w-full justify-center h-24 xs:h-40 text-blue-900 font-medium p-3 lg:px-28
+  @apply fixed bg-white bg-opacity-40 backdrop-blur z-40 xs:text-lg flex w-full justify-center h-24 xs:h-40 text-blue-900 font-medium p-3 lg:px-28
   transition-all duration-700 ease-in-out;
 }
 

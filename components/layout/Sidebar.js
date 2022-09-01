@@ -104,7 +104,7 @@ export default function Sidebar() {
             closeSide();
           }}
         >
-          <span>{`Let's work together`}</span>
+          <span>{`Lights, Camera... Magic!`}</span>
         </div>
       </nav>
     </motion.div>
