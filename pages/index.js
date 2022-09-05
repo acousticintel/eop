@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 //custom packages
 import { motion } from "framer-motion";
 import { useRecoilValue } from "recoil";
-import ReactPlayer from "react-player/lazy";
 //custom
 import { loadingAtom } from "../context/loadingAtom";
 import Banner from "../components/layout/Banner";
@@ -10,6 +9,7 @@ import About from "../components/layout/About";
 import Contact from "../components/layout/Contact";
 import Footer from "../components/layout/Footer";
 import Videos from "../components/layout/Videos";
+import Modal from "../components/elements/Modal";
 
 export default function Home() {
   const loading = useRecoilValue(loadingAtom);
@@ -40,19 +40,7 @@ export default function Home() {
         )}
       </div>
       <input type="checkbox" id="my-modal" className="modal-toggle" />
-      <div className="modal">
-        <div className="modal-box w-11/12 max-w-5xl bg-black">
-          <label
-            htmlFor="my-modal"
-            className="btn btn-sm btn-circle absolute right-2 top-2"
-          >
-            ✕
-          </label>
-          <div className="py-10 flex justify-center items-center">
-            <ReactPlayer controls={true} width="100%" className="player" url="https://player.vimeo.com/video/671400778?h=046604dc66" />
-          </div>
-        </div>
-      </div>
+      <Modal />
       <Banner />
       <About />
       <Videos />
