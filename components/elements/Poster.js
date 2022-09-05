@@ -46,6 +46,8 @@ export default function Poster({ selected, setSelected, data, index, controls })
     }
   }, [hovControls, hovered]);
 
+  console.log()
+
   return (
     <motion.div
       custom={index}
@@ -64,19 +66,18 @@ export default function Poster({ selected, setSelected, data, index, controls })
         className="absolute w-full h-full flex justify-center items-center abs-center bg-black z-10"
       />
       <div
-        className="absolute w-full h-full flex justify-center items-center abs-center text-white uppercase z-20"
+        className="absolute w-full h-full flex justify-center items-center abs-center text-white uppercase z-20 px-4"
       >
         <div className="text-center">
-          <h1 className="text-xl font-semibold">Movie Title</h1>
-          <h2 className="text-sm">Movie Tag</h2>
-          <h2 className="font font-medium">Directed By Enos Olik</h2>
+          <h1 className="text-xl font-semibold">{data.name}</h1>
+          <h2 className="font font-medium mt-3">Directed By Enos Olik</h2>
         </div>
       </div>
       <Image
         alt={data?.name || ""}
         layout="fill"
         objectFit="cover"
-        src={`https://api.lorem.space/image/movie?hash=317${index}`}
+        src={data.thumbnail ? data.thumbnail : `https://api.lorem.space/image/movie?hash=317${index}`}
       />
     </motion.div>
   );

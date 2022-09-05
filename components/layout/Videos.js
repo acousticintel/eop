@@ -7,6 +7,7 @@ import { useInView } from "react-intersection-observer";
 import Parallax from "../elements/Parallax";
 import Link from "next/link";
 import Poster from "../elements/Poster";
+import { content } from "../../context/data";
 
 const banner = {
   animate: {
@@ -67,33 +68,6 @@ export default function Videos1() {
     }
   }, [controls, inView]);
 
-  const videos = [
-    {
-      name: "movie 1",
-    },
-    {
-      name: "movie 1",
-    },
-    {
-      name: "movie 1",
-    },
-    {
-      name: "movie 1",
-    },
-    {
-      name: "movie 1",
-    },
-    {
-      name: "movie 1",
-    },
-    {
-      name: "movie 1",
-    },
-    {
-      name: "movie 1",
-    },
-  ];
-
   return (
     <Element name="videos">
       <div ref={ref}>
@@ -107,7 +81,7 @@ export default function Videos1() {
           />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full h-full mt-5">
-          {videos.map((v, i) => (
+          {content?.length > 0 && content.map((v, i) => (
             <Poster key={i} index={i} data={v} controls={controls}/>
           ))}
         </div>
