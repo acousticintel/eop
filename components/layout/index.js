@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
 //custom
+import Modal from "../../components/elements/Modal";
 import { loadingAtom } from "../../context/loadingAtom";
 //dynamic
 const Header = dynamic(() => import("./Header"));
@@ -33,9 +34,10 @@ export default function Layout({ children, path }) {
           </motion.div>
         ) : (
           <>
-            <Sidebar /> 
-            <Header loading={loading}/>
+            <Sidebar />
+            <Header loading={loading} />
             {children}
+            <Modal />
           </>
         )}
       </AnimatePresence>

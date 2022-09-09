@@ -5,7 +5,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 //custom
 import Poster from "../components/elements/Poster";
-import { loadingAtom } from "../context/loadingAtom";
+import { content } from "../context/data";
 
 export default function VideosPage() {
   const controls = useAnimation();
@@ -73,9 +73,10 @@ export default function VideosPage() {
   return (
     <section className="videos_page" ref={ref}>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full h-full mt-5">
-        {videos.map((v, i) => (
-          <Poster key={i} index={i} data={v} controls={controls} />
-        ))}
+        {content?.length > 0 &&
+          content.map((v, i) => (
+            <Poster key={i} index={i} data={v} controls={controls} />
+          ))}
       </div>
     </section>
   );

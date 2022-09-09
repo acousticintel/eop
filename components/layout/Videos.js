@@ -81,9 +81,12 @@ export default function Videos1() {
           />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full h-full mt-5">
-          {content?.length > 0 && content.map((v, i) => (
-            <Poster key={i} index={i} data={v} controls={controls}/>
-          ))}
+          {content?.length > 0 &&
+            content
+              .slice(0, 12)
+              .map((v, i) => (
+                <Poster key={i} index={i} data={v} controls={controls} />
+              ))}
         </div>
         <motion.div
           initial="initial"

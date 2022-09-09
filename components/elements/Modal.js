@@ -30,7 +30,8 @@ export default function Modal() {
   useEffect(() => {
     setLoading(true);
     setPlay(false);
-  }, [content]);
+    console.log(content.link)
+  }, [content?.link]);
 
   useEffect(() => {
     if (loading) {
@@ -38,47 +39,61 @@ export default function Modal() {
     } else {
       controls.start("show");
     }
-  }, [loading]);
+  }, [loading]);  
 
   const handleReady = () => {
     setPlay(true);
     setLoading(false);
   };
 
-  const handleStopVideo = () => {
+  const handleCloseModal = () => {
+    setPlay(false);
+    document.getElementById("my-modal").checked = false;
+  };
+
+  const handleBuffer = () => {
     setPlay(false);
   };
 
+  const handleBufferEnd = () => {
+    let open = document.getElementById("my-modal").checked;
+    console.log("open ", open);
+    open ? setPlay(true) : setPlay(false);
+  };
+
   return (
-    <div className="modal">
-      <div className="modal-box w-11/12 max-w-5xl bg-black">
-        <label
-          htmlFor="my-modal"
-          onClick={handleStopVideo}
-          className="btn btn-sm btn-circle absolute right-2 top-2"
-        >
-          ✕
-        </label>
-        <div className="relative py-10 flex justify-center items-center">
-          <div className="absolute abs-center">
-            {loading && <progress className="progress w-56"></progress>}
-          </div>
-          <motion.div
-            variants={playerAnim}
-            animate={controls}
-            className="w-full h-full"
+    <div>
+      <input type="checkbox" id="my-modal" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box w-11/12 max-w-5xl bg-black">
+          <div
+            onClick={handleCloseModal}
+            className="btn btn-sm btn-circle absolute right-2 top-2"
           >
-            {content?.link && content?.link?.length > 0 && (
+            ✕
+          </div>
+          <div className="relative p-10 px-6 flex justify-center items-center">
+            <div className="absolute abs-center z-50">
+              {loading && <progress className="progress w-56"></progress>}
+            </div>
+            <motion.div
+              variants={playerAnim}
+              animate={controls}
+              className="w-full h-full"
+            >
               <ReactPlayer
                 playing={play}
                 onReady={handleReady}
+                onBuffer={handleBuffer}
+                onBufferEnd={handleBufferEnd}
+                onError={() => console.log("Error")}
                 controls={true}
                 width="100%"
                 className="player"
                 url={content?.link}
               />
-            )}
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </div>
