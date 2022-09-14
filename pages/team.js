@@ -124,7 +124,7 @@ export default function TeamPage() {
       variants={pageAni}
       initial="initial"
       animate="animate"
-      className="container mx-auto pt-44 pb-20"
+      className="container mx-auto px-6 pt-44 pb-20"
     >
       <motion.div variants={pageHeadContAni} className="w-full">
         <motion.h6
