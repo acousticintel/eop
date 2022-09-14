@@ -20,7 +20,7 @@ export default function Footer() {
             alt=""
           />
         </div>
-        <p className="mt-6">Lorem ipsum dolor sit amet.</p>
+        <p className="mt-6">{`Lights, Camera... Magic!`}Contact Info.</p>
       </div>
       <div className=" flex flex-col items-end">
         <span className="text-3xl font-semibold">Social</span>

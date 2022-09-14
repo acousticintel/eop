@@ -30,7 +30,6 @@ export default function Modal() {
   useEffect(() => {
     setLoading(true);
     setPlay(false);
-    console.log(content.link)
   }, [content?.link]);
 
   useEffect(() => {
