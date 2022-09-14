@@ -20,10 +20,10 @@ export default function Footer() {
             alt=""
           />
         </div>
-        <p className="mt-6">{`Lights, Camera... Magic!`}Contact Info.</p>
+        <p className="mt-6">{`Lights, Camera... Magic!`}</p>
       </div>
       <div className=" flex flex-col items-end">
-        <span className="text-3xl font-semibold">Social</span>
+        <span className="text-3xl font-semibold">Contact Info</span>
         <div className="grid grid-flow-col gap-4 mt-6">
           <Link href="tel:+254722767373">
             <a>
