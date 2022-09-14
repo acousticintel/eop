@@ -57,12 +57,14 @@ const Header = ({ loading }) => {
       <div className="header-inner">
         <Link href="/">
           <div className="relative h-full w-72 min-w-[200px]">
-            <Image
-              src="/images/logo.png"
-              layout="fill"
-              className="object-contain"
-              alt=""
-            />
+            {router.pathname !== "/" && (
+              <Image
+                src="/images/logo.png"
+                layout="fill"
+                className="object-contain"
+                alt=""
+              />
+            )}
           </div>
         </Link>
         <nav className="nav">

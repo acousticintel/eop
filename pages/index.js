@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Link from "next/link";
 //custom packages
 import { motion } from "framer-motion";
 import { useRecoilValue } from "recoil";
@@ -27,14 +28,16 @@ export default function Home() {
     <main className="max-w-screen overflow-x-hidden no-scroll">
       <div className="absolute top-4 left-3 lg:left-28 z-50 pointer-events-none">
         {!loading && (
-          <div className="h-full w-[45vw] sm:w-72">
-            <motion.img
-              transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1.6 }}
-              src={`/images/logo.png`}
-              layout
-              layoutId="main-image-1"
-            />
-          </div>
+          <Link href="/">
+            <div className="h-full w-[45vw] sm:w-72">
+              <motion.img
+                transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1.6 }}
+                src={`/images/logo.png`}
+                layout
+                layoutId="main-image-1"
+              />
+            </div>
+          </Link>
         )}
       </div>
       <Banner />
